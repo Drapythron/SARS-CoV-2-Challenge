@@ -1,10 +1,33 @@
-"""Lectura del archivo .csv, pero discriminando los países mal escritos. Ej: Spain y Spain:Valencia lo consideramos como 2 países distintos. """
+"""Lectura del archivo .csv, pero discriminando los países mal escritos. Ej: Spain y Spain:Valencia lo consideramos como 2 países distintos.
+Tuppla: (accession, length, geoLocation)"""
 
 import csv
+import statistics
+import numpy as np
 
 sequences = []
 geoLocations = []
 analysisList = []
+
+def mediana(geoLocation):
+    idems = []
+    for tupla in sequences:
+        if tupla[2] == geoLocation:
+            analysisList.append(tupla)
+            idems.append(int(tupla[1]))
+    median = int(statistics.median(idems))
+    if idems.count(median):
+        indexMedian = idems.index(median)
+        result = analysisList[indexMedian]
+    else: #Para cuando la mediana no cioncide con ningun elemento de la lista
+        idems = np.asarray(idems)
+        idxIdems = (np.abs(idems - median)).argmin()
+        result = analysisList[idxIdems]
+    analysisList.clear()
+    return result
+
+
+
 
 with open('sequences.csv', newline='') as File:
     reader = csv.reader(File)
@@ -17,4 +40,7 @@ with open('sequences.csv', newline='') as File:
             sequences.append((accession, length, geoLocation))
             if geoLocations.count(geoLocation) == 0:
                 geoLocations.append(geoLocation)
-    print(geoLocations)
+
+    for geoLocation in geoLocations:
+        median = mediana(geoLocation)
+        print(median)
