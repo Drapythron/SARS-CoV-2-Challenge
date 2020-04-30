@@ -22,8 +22,7 @@ Una vez tenemos el resultado tenemos la mediana, podemos realizar dos opciones:
 2. Sí la mediana no esta contenida en la lista, buscaremos el valor que más se acerque a la mediana.
 
    ```pyton
-   idxIdems = (np.abs(idems - median)).argmin()
-           result = analysisList[idxIdems]
+   result = analysisList[min(range(len(idems)), key = lambda i: abs(idems[i] - median))]
    ```
 
 Una vez tenemos la posición de la mediana en la lista, devolveremos la tupla en la posición de 'analysisiList'
