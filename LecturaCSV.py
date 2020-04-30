@@ -3,7 +3,6 @@ Tuppla: (accession, length, geoLocation)"""
 
 import csv
 import statistics
-import numpy as np
 
 sequences = []
 geoLocations = []
@@ -20,9 +19,7 @@ def mediana(geoLocation):
         indexMedian = idems.index(median)
         result = analysisList[indexMedian]
     else: #Para cuando la mediana no cioncide con ningun elemento de la lista
-        idems = np.asarray(idems)
-        idxIdems = (np.abs(idems - median)).argmin()
-        result = analysisList[idxIdems]
+        result = analysisList[min(range(len(idems)), key = lambda i: abs(idems[i] - median))]
     analysisList.clear()
     return result
 
