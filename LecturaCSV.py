@@ -80,7 +80,8 @@ def saveGeoLocation(reader):
 def newLocation(oldLocation, locations):
     for country in locations:
         if country.count(oldLocation):
-            return country[0]  # Devuelve el país, sin la región si existiese
+            return country[0]  # Devuelve el país, sin la región si existies
+    return oldLocation
 
 
 if __name__ == '__main__':
