@@ -1,6 +1,6 @@
 # Preprocessament SARS CoV-2 Challange (Drapythron)
 
-Els autors del la primera part del SARS CoV-2 Challange, el Preprocessament, i membres del grup Drapythron som:
+Los autores de la primera parte del SARS CoV-2 Challange, el *Preprocessament*, y miembros del grupo Drapythron somos:
 
 - Sergio Beltrán Guerrero
 - Jaume Guasch Llobera
@@ -9,7 +9,7 @@ Els autors del la primera part del SARS CoV-2 Challange, el Preprocessament, i m
 
 
 
-**Taula de continguts:**
+**Tabla de contenidos:** (en el github online no aparece la tabla, en otros programas sí)
 
 [TOC]
 
