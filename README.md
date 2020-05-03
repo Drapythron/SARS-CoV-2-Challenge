@@ -48,6 +48,14 @@ En definitiva, el proceso de lectura del archivo csv y la devolución de la medi
 
 ### median(list)
 
+Esta función nos sirve para encontrar la mediana de la lista. El valor que se encuentra en medio de la lista.
+
+Para ello primero tendremos que ordenar con el método mergeSort.
+
+Según la longitud de la lista (impar o par) la mediana puede encontrarse en un único número, o entre dos posiciones.
+
+En el caso de que la longitud sea impar, significa que podremos encontrar la mediana en un único resultado.
+En el caso de longitud par, la mediana se encuentra entre dos números y por tanto tendremos que hacer la media de los valores en conflicto.
 
 
 ### mergeSort(list)
