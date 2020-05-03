@@ -47,7 +47,7 @@ La función saveGeoLocations bàsicamente hace dos cosas al tratar el fichero.
 
 Devuelve *locations*.
 
-El coste de este proceso es **O(n^2)**, donde n es el número de líneas del archivo csv por su profundiad.
+El coste de este proceso es **O(n<sub>2</sub>)**, donde n es el número de líneas del archivo csv por su profundiad.
 
 
 
