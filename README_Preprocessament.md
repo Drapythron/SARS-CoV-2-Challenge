@@ -15,7 +15,7 @@ Los autores de la primera parte del SARS CoV-2 Challange, el *Preprocessament*, 
 
 ## Lectura de archivos .csv
 
-En nuestro programa leeremos dos archivos. Primero uno de creación propia que contiene todas la ubicaciones que se han publicado en la *National Library of Medicine* a fecha de 1 de mayo de 2020. A continuación, el archivo csv de sequences tambien obtenido de la misma página web a fecha de 31 de abril de 2020 con los datos sobre nucleoides publicados al rededor del mundo.
+En nuestro programa leeremos dos archivos. Primero uno de creación propia que contiene todas la ubicaciones que se han publicado en la *National Library of Medicine* a fecha de 1 de mayo de 2020. A continuación, el archivo csv de sequences tambien obtenido de la misma página web a fecha de 31 de abril de 2020 con los datos sobre nucleoides publicados alrededor del mundo.
 
 ### Lectura del archivo *geoLocations.csv*
 
