@@ -45,19 +45,19 @@ def median(list):   # Función màtematica de la mediana
 
 
 def mediana(geoLocation):
-    idems = []      # Guardará las longitudes
+    lengths = []      # Guardará las longitudes
     for tupla in sequences:
         if tupla[2] == geoLocation:     # Comprovamos que estos al país que toca
             analysisList.append(tupla)
-            idems.append(int(tupla[1])) # idems tendrá los datos de solo los length
-    med = median(idems)  # Mediana realizada con funciones propias
+            lengths.append(int(tupla[1])) # idems tendrá los datos de solo los length
+    med = median(lengths)  # Mediana realizada con funciones propias
 
     # Ahora devolveremos el valor length correspondiente a la posición de la mediana
-    if idems.count(med): 
-        indexMedian = idems.index(med)
+    if lengths.count(med):
+        indexMedian = lengths.index(med)
         result = analysisList[indexMedian]
     else:  # Para cuando la mediana no coincida con ningun elemento de la lista
-        result = analysisList[min(range(len(idems)), key=lambda i: abs(idems[i] - med))]
+        result = analysisList[min(range(len(lengths)), key=lambda i: abs(lengths[i] - med))]
 
     analysisList.clear()
     return result
