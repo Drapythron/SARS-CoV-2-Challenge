@@ -1,5 +1,18 @@
 # -SARS-CoV-2-Challange
-# Lectura del archivo .csv
+
+## Lectura de archivos
+### Lectura de archivos 'geoLocations.csv'
+
+####  saveGeoLocation(reader):
+
+
+####  def newLocation(oldLocation, locations):
+
+
+
+
+
+### Lectura del archivo 'sequences.csv'
 
 Primero de todo abrimos el archivo .csv para poder leer las secuencias de los países.
 
@@ -33,9 +46,17 @@ Este proceso tiene un coste de ***O(n)***, donde n es el tamaño de 'sequences'.
 
 En definitiva, el proceso de lectura del archivo csv y la devolución de la mediana de cada país tiene un coste de ***O(n<sup>3</sup>)*** .
 
+### median(list)
+
+
+
+### mergeSort(list)
+
 
 
 ## Futuros cambios
 
 - Modificar el result, en vez de devolver la tupla, que se devuelva una lista con todas las 'accession', así podremos mejorar el proceso de búsqueda en la web de los datos del COVID-19.
 - Mejora del coste en mediana. Eliminar de 'sequences' las tuplas ya analizadas. Así realizaremos menos vueltas a la hora de comparar con los geoLocation.
+
+
