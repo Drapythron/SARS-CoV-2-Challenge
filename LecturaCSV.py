@@ -1,4 +1,4 @@
-"""Lectura del archivo .csv, pero discriminando los países mal escritos. Ej: Spain y Spain:Valencia lo consideramos como 2 países distintos.
+"""Lectura del archivo .csv, unificando las regiones de los países. Ej: Spain y Spain:Valencia lo consideramos como 1 solo país.
 Tuppla: (accession, length, geoLocation)"""
 
 import csv
@@ -8,12 +8,12 @@ geoLocations = []
 analysisList = []
 
 def mergeSort(data):
-    if len(data) <= 2:  # Cuando tenemos un pack individual o una pareja
+    if len(data) <= 2:  # Cuando tenemos un pack individual o una pareja, caso simple
         if len(data) == 2:
             if data[0] > data[1]:  # Si es pareja y no estan en orden, hacemos un swap
                 data[0], data[1] = data[1], data[0]
         return data
-
+    
     result = []
     m = len(data) // 2  # Función recursiva del mètodo Divide&Conquere
     dataL = mergeSort(data[:m])
@@ -53,7 +53,7 @@ def mediana(geoLocation):
     med = median(idems)  # Mediana realizada con funciones propias
 
     # Ahora devolveremos el valor length correspondiente a la posición de la mediana
-    if idems.count(median):     # NO CAPITXI EL MEDIAN ESTE
+    if idems.count(med): 
         indexMedian = idems.index(med)
         result = analysisList[indexMedian]
     else:  # Para cuando la mediana no coincida con ningun elemento de la lista
@@ -65,7 +65,7 @@ def mediana(geoLocation):
 
 def saveGeoLocation(reader):
     locations = []
-    row1 = next(reader)  # Eliminamos la linea de el encabezado
+    row1 = next(reader) 
     for loc in row1:
         locations.append([loc])  # Vamos saparando los diferentes paises
     for row in reader:
@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
                 if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introdizcamos algun dato vacio
                     sequences.append((accession, length, geoLocation))  # Añadimos la tupla con los datos
-                    if geoLocations.count(geoLocation) == 0:  # POSAR COMENTARI
+                    if geoLocations.count(geoLocation) == 0:  # Añadimos los nuevos paises
                         geoLocations.append(geoLocation)
 
             for geoLocation in geoLocations:  # Calculamos las medianas en cada país
