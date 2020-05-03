@@ -2,7 +2,7 @@
 Tuppla: (accession, length, geoLocation)"""
 
 import csv
-import statistics
+
 
 sequences = []
 geoLocations = []
@@ -54,30 +54,52 @@ def mediana(geoLocation):
         if tupla[2] == geoLocation:
             analysisList.append(tupla)
             idems.append(int(tupla[1]))
-    med = median(idems) #Mediana realizada con funciones propias
-    #med = statistics.median(idems) Calcular la mediana mediante la librería statistics.
+    med = median(idems)  # Mediana realizada con funciones propias
+    # med = statistics.median(idems) Calcular la mediana mediante la librería statistics.
     if idems.count(median):
         indexMedian = idems.index(med)
-        result = analysisList[indexMedian]#[0] descomentar para ver solo las accession
+        result = analysisList[indexMedian]
     else:  # Para cuando la mediana no cioncide con ningun elemento de la lista
-        result = analysisList[min(range(len(idems)), key=lambda i: abs(idems[i] - med))]#[0] descomentar para ver solo las accession
+        result = analysisList[min(range(len(idems)), key=lambda i: abs(idems[i] - med))]
     analysisList.clear()
     return result
 
 
+def saveGeoLocation(reader):
+    locations = []
+    row1 = next(reader)
+    for loc in row1:
+        locations.append([loc])
+    for row in reader:
+        pos = 0
+        for loc in row:
+            if loc != '':
+                locations[pos].append(loc)
+            pos += 1
+    return locations
+
+
+def newLocation(oldLocation, locations):
+    for country in locations:
+        if country.count(oldLocation):
+            return country[0]
+
+
 if __name__ == '__main__':
     with open('sequences.csv', newline='') as File:
-        reader = csv.reader(File)
-        row1 = next(reader)  # Eliminamos la linea de el encabezado
-        for row in reader:
-            accession = row[0]
-            length = row[5]
-            geoLocation = row[12]
-            if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introdizcamos algun dato vacio
-                sequences.append((accession, length, geoLocation))
-                if geoLocations.count(geoLocation) == 0:
-                    geoLocations.append(geoLocation)
-
-        for geoLocation in geoLocations:
-            res = mediana(geoLocation)
-            print(res)
+        with open('geoLocations.csv', newline='') as FileLoc:
+            reader = csv.reader(FileLoc, delimiter=';')
+            locs = saveGeoLocation(reader)
+            reader = csv.reader(File)
+            row1 = next(reader)  # Eliminamos la linea de el encabezado
+            for row in reader:
+                accession = row[0]
+                length = row[5]
+                geoLocation = newLocation(row[12], locs)
+                if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introdizcamos algun dato vacio
+                    sequences.append((accession, length, geoLocation))
+                    if geoLocations.count(geoLocation) == 0:
+                        geoLocations.append(geoLocation)
+            for geoLocation in geoLocations:
+                res = mediana(geoLocation)
+                print(res[0])
