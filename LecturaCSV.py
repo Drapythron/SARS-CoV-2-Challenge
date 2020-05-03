@@ -45,7 +45,7 @@ def median(list):   # Función màtematica de la mediana
 
 
 def mediana(geoLocation):
-    idems = []      # Desará los length
+    idems = []      # Guardará las longitudes
     for tupla in sequences:
         if tupla[2] == geoLocation:     # Comprovamos que estos al país que toca
             analysisList.append(tupla)
