@@ -9,7 +9,7 @@ Los autores de la primera parte del SARS CoV-2 Challange, el *Preprocessament*, 
 
 
 
-**Tabla de contenidos:** (en el github online no aparece la tabla, en otros programas sí)
+**Tabla de contenidos:** (en github online no aparece la tabla, en otros programas sí)
 
 [TOC]
 
@@ -32,7 +32,7 @@ Primero abriremos el archivo .csv que hemos creado anteriorment. Este archivo ti
 
 *Tabla de muestra, no está completa. Hay muchos más países y regiones en cada país.*
 
-Como se puede observar, en la cabezera, la fila 0, hay todos los países y en cada columna del país sus regiones/país enteor/etc.
+Como se puede observar, en la cabezera, la fila 0, hay todos los países y en cada columna del país aparecen debajo sus regiones/país entero/etc.
 
 Ahora procederemos a guardar todos los datos del fichero .csv en el programa con la función saveGeoLocation.
 
@@ -40,9 +40,9 @@ Ahora procederemos a guardar todos los datos del fichero .csv en el programa con
 
 ####  Función saveGeoLocation(reader)
 
-La función saveGeoLocations bàsicamente hace dos cosas al tratar el fichero.
+La función saveGeoLocations básicamente hace dos cosas al tratar el fichero:
 
-1. Ir añadiendo cada país a *locations*, coge los valores de la primera fila.
+1. Ir añadiendo cada país a *locations*, cogiendo los valores de la primera fila.
 2. Ir añadiendo a cada país (*locations[pos]*) todas sus correspondientes regiones.
 
 Devuelve *locations*.
@@ -102,13 +102,11 @@ En definitiva, el proceso de lectura del archivo csv y la devolución de la medi
 
 Esta función nos sirve para encontrar la mediana de los valores de la lista. La mediana devuelve el valor que se encuentra en medio de la lista.
 
-Para ello primero tendremos que ordenar la lista, nosaltros utilizamos el métode de *Divide y Vencerás* **Merge Sort** (explicado en el siguiente apartado).
+Para ello primero tendremos que ordenar la lista, nosaltros utilizamos el métode de *Divide y Vencerás* [**Merge Sort**](https://en.wikipedia.org/wiki/Merge_sort) (explicado en el siguiente apartado).
 
 Según la longitud de la lista (si finaliza en impar o par) la mediana puede encontrarse en un único número (impar), o entre dos posiciones (par).
 
-Si la longitud de la lista es impar, significa que podremos encontrar la mediana en un único resultado, el valor del medio al tener la lista ordenada. Por el otro lado, en caso de longitud de la lista par, la mediana la obtendremos entre dos números, el de delante y atrás del valor del medio, y por tanto tendremos que hacer la media de los valores en conflicto.
-
-El coste de este proceso es **O(1)**, ya que solo contiene un if-else. **REVISAR!!!!**
+Si la longitud de la lista es impar, significa que podremos encontrar la mediana en un único resultado, el valor del medio al tener la lista ordenada. Por el otro lado, en caso de longitud de la lista par, la mediana la obtendremos entre dos números, el de delante y atrás del valor del medio, y por tanto tendremos que hacer la media de los valores en conflicto. El coste de este proceso es **O(1)**, ya que solo contiene un if-else.
 
 
 
@@ -116,30 +114,8 @@ El coste de este proceso es **O(1)**, ya que solo contiene un if-else. **REVISAR
 
 En la función mergeSort pretendemos ordenar las longitudes de las secuencias de menor a mayor en una lista, siendo el objetivo final poder obtener el elemento que forma la mediana de la lista.
 
-El algoritmo empleado es del tipo "divide y vencerás", con un coste de O(n·log(n)), se emplea de forma recursiva.
+El algoritmo empleado es del tipo "**divide y vencerás**", con un coste de **O(n·log(n))** y se emplea de forma recursiva.
 
-En el algoritmo dividimos la lista proporcionada en dos partes, siendo la única condición que la longitud de las listas a dividir sea mayor que dos. Una vez se hace la ultima llamada a la propia función desde si misma, compararemos valores y concatenaremos las listas ordenadas, para al final obtener una sola lista. 
+En el algoritmo dividimos la lista proporcionada en dos partes, siendo la única condición que la longitud de las listas a dividir sea mayor que dos. El objetivo ahora es seguir dividiendo las dos listas obtenidas sucesivamente hasta obtener listas con elementos individuales o pares.
 
-Al final de la función obtenemos otra vez una lista única totalmente ordenada.
-
-# AIXÒ S'HAURIA DE BORRAR OI???
-
-## Futuros cambios
-
-- Modificar el result, en vez de devolver la tupla, que se devuelva una lista con todas las 'accession', así podremos mejorar el proceso de búsqueda en la web de los datos del COVID-19.
-- Mejora del coste en mediana. Eliminar de 'sequences' las tuplas ya analizadas. Así realizaremos menos vueltas a la hora de comparar con los geoLocation.
-
-
-
-
-
-
-
-
-
-# **La solució és:** O(n·log(n))
-
-## donde n es la longitud de la lista
-
-
-
+Una vez hemos obtenido listas formadas por uno/dos elemento(s), compararemos los valores y ordenaremos las listas, una vez realizada la ordenación de los elementos en las listas, concatenamos las listas para reducir todos los elementos a una sola lista ordenada, la cual devolvemos.
