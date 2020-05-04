@@ -114,13 +114,13 @@ El coste de este proceso es **O(1)**, ya que solo contiene un if-else. **REVISAR
 
 ### Función mergeSort
 
-**JAUMEE** guapo intenta calcular lo de sote:
+En la función mergeSort pretendemos ordenar las longitudes de las secuencias de menor a mayor en una lista, siendo el objetivo final poder obtener el elemento que forma la mediana de la lista.
 
-El coste de este proceso es **O(?)**, donde n es el número de ???.
+El algoritmo empleado es del tipo "divide y vencerás", con un coste de O(n·log(n)), se emplea de forma recursiva.
 
-Al final del document tens la solució, la que crec vamos
+En el algoritmo dividimos la lista proporcionada en dos partes, siendo la única condición que la longitud de las listas a dividir sea mayor que dos. Una vez se hace la ultima llamada a la propia función desde si misma, compararemos valores y concatenaremos las listas ordenadas, para al final obtener una sola lista. 
 
-
+Al final de la función obtenemos otra vez una lista única totalmente ordenada.
 
 # AIXÒ S'HAURIA DE BORRAR OI???
 
