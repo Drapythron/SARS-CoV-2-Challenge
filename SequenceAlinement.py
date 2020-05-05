@@ -19,11 +19,4 @@ if __name__ == '__main__':
             sequences[pos][2] += reader
 
         reader = seqFASTA.readline()
-    #print(sequences)
-
-    #ANÁLIS DE LAS SECUENCIAS
-
-    for i in range(len(sequences[0][2])):
-        print(sequences[0][2][i])
-
-
+    print(sequences)
