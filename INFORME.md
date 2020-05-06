@@ -1,4 +1,4 @@
-# Preprocessament SARS CoV-2 Challange (Drapythron)
+# SARS CoV-2 Challange (Drapythron)
 
 Los autores de la primera parte del SARS CoV-2 Challange, el *Preprocessament*, y miembros del grupo Drapythron somos:
 
@@ -12,6 +12,8 @@ Los autores de la primera parte del SARS CoV-2 Challange, el *Preprocessament*, 
 **Tabla de contenidos:** (en github online no aparece la tabla, en otros programas sí)
 
 [TOC]
+
+# Preprocesamiento
 
 ## Lectura de archivos .csv
 
@@ -119,3 +121,5 @@ El algoritmo empleado es del tipo "**divide y vencerás**", con un coste de **O(
 En el algoritmo dividimos la lista proporcionada en dos partes, siendo la única condición que la longitud de las listas a dividir sea mayor que dos. El objetivo ahora es seguir dividiendo las dos listas obtenidas sucesivamente hasta obtener listas con elementos individuales o pares.
 
 Una vez hemos obtenido listas formadas por uno/dos elemento(s), compararemos los valores y ordenaremos las listas, una vez realizada la ordenación de los elementos en las listas, concatenamos las listas para reducir todos los elementos a una sola lista ordenada, la cual devolvemos.
+
+# Alineamiento sequencial
