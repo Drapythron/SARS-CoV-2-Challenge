@@ -1,4 +1,6 @@
-# README: Alineamiento sequenciado
+# README de la pràctica SARS-CoV-2-Challange del grupo Drapythron
+
+# Alineamiento sequenciado
 
 
 ## Lectura de fichero
