@@ -1,25 +1,50 @@
-# SARS CoV-2 Challange (Drapythron)
+# INFORME: SARS CoV-2 Challange (Drapythron)
 
-Los autores de la primera parte del SARS CoV-2 Challange, el *Preprocessament*, y miembros del grupo Drapythron somos:
+Los autores del SARS CoV-2 Challange y miembros del grupo Drapythron somos:
 
 - Sergio Beltrán Guerrero
 - Jaume Guasch Llobera
 - Sebastian Bampton Blasco
 - Martí Serratosa Sedó
 
+El programa utilizado para programar el codigo han sido PyCharm donde hemos trabajado con classes. Hay clases que corresponden exactamente con partes de la pràctica y otras partes tienen más de una classe. Para el redactado en markdown hemos utilizado Typora, tanto el informe como el readme han sido únicamente trabajados con markdown.
 
+El informe lo dividiremos en una introducció, las diferentes partes de la práctica: preprocesamiento, alineamiento sequencial y clasificación, y, conlusión. Dentro de cada sección ya habrá más apardos si es conveniente.
 
 **Tabla de contenidos:** (en github online no aparece la tabla, en otros programas sí)
 
 [TOC]
 
-# Preprocesamiento
+# 0. Introducción
 
-## Lectura de archivos .csv
+Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad científica es aconseguir una vacuna para el virus SARS-CoV-2. Uno de los problemas más significantes del coronavirus es su rápida mutación. Expertos en computación quieren clasificar las diferentes muestas de ARN para poder crear un árbol genalógico.
+
+**El objetivo de esta práctica, reto (challenge) es clasificar las diferentes muestras del virus que hay en el mundo y mostrar su árbol genalógico.**
+
+La ejecucion del programa se realiza en el Main.py este a su vez llamará otras classes para poder realizar las funciones deseadas. El orden de uso de la diferentes clases es el siguiente:
+
+1. LecturaCSV
+2. UrlSequence
+3. NeedlemanWunsch
+4. **ACTUALITZAR!!!!**
+
+
+
+# 1. Preprocesamiento
+
+La primera parte de la práctica consiste en la lectura de un archivo csv con las secuencias para poder calcular la mediana de cada país. Esta parte se ha realizado integramente en **la classe *LecturaCSV***. 
+
+A continuación hay las correspondientes explicaciones a las funciones de la clase.
+
+
+
+## 1.1 Lectura de archivos .csv
 
 En nuestro programa leeremos dos archivos. Primero uno de creación propia que contiene todas la ubicaciones que se han publicado en la *National Library of Medicine* a fecha de 1 de mayo de 2020. A continuación, el archivo csv de sequences tambien obtenido de la misma página web a fecha de 31 de abril de 2020 con los datos sobre nucleoides publicados alrededor del mundo.
 
-### Lectura del archivo *geoLocations.csv*
+
+
+### 1.1.1 Lectura del archivo *geoLocations.csv*
 
 Primero abriremos el archivo .csv que hemos creado anteriorment. Este archivo tiene este tipo de formato:
 
@@ -40,7 +65,7 @@ Ahora procederemos a guardar todos los datos del fichero .csv en el programa con
 
 
 
-####  Función saveGeoLocation(reader)
+####  1.1.1.1 Función saveGeoLocation(reader)
 
 La función saveGeoLocations básicamente hace dos cosas al tratar el fichero:
 
@@ -54,7 +79,7 @@ El coste de este proceso es **O(n<sup>2</sup>)**, donde n es el número de líne
 
 
 
-####  Función newLocation(oldLocation, locations):
+####  1.1.1.2 Función newLocation(oldLocation, locations):
 
 La función newLocation coge el valor de la ubicación del fichero *sequences.csv* (oldLocation) y buscará su correspondiente país, por este motivo pasamos *locations*.
 
@@ -64,7 +89,7 @@ El coste de este proceso es **O(n)**, donde n es el número de ubicaciones en *l
 
 
 
-### Lectura del archivo *sequences.csv*
+### 1.1.2 Lectura del archivo *sequences.csv*
 
 Primero de todo abrimos el archivo .csv para poder leer las secuencias de los países.
 
@@ -78,7 +103,7 @@ Este proceso tiene un coste de **O(n)**, donde n es el número de países.
 
 
 
-## Función mediana(geoLocation)
+## 1.2 Función mediana(geoLocation)
 
 En esta función, analizaremos todas las tuplas de la secuencia. Iremos comparando una a una con la geoLocation pasada. Si la tupla coincide, la almacenaremos la tupla en la lista 'analysisList' y el length en 'idems'. Una vez hemos comparado todas las tuplas de la secuencia, realizaremos la mediana de la lista 'idems'.
 
@@ -100,7 +125,7 @@ En definitiva, el proceso de lectura del archivo csv y la devolución de la medi
 
 
 
-### Función median
+### 1.2.1 Función median
 
 Esta función nos sirve para encontrar la mediana de los valores de la lista. La mediana devuelve el valor que se encuentra en medio de la lista.
 
@@ -112,7 +137,7 @@ Si la longitud de la lista es impar, significa que podremos encontrar la mediana
 
 
 
-### Función mergeSort
+### 1.2.2 Función mergeSort
 
 En la función mergeSort pretendemos ordenar las longitudes de las secuencias de menor a mayor en una lista, siendo el objetivo final poder obtener el elemento que forma la mediana de la lista.
 
@@ -122,4 +147,43 @@ En el algoritmo dividimos la lista proporcionada en dos partes, siendo la única
 
 Una vez hemos obtenido listas formadas por uno/dos elemento(s), compararemos los valores y ordenaremos las listas, una vez realizada la ordenación de los elementos en las listas, concatenamos las listas para reducir todos los elementos a una sola lista ordenada, la cual devolvemos.
 
-# Alineamiento sequencial
+# 3. Alineamiento sequencial
+
+La segunda parte de la práctica consiste en realizar dos tareas. 
+
+* La primera tarea es la lectura del ARN de cada nucleoide de la mediana del país encontrada en la primera parte. Para realizar esta tarea usaremos **la clase UrlSequence**.
+* La segunda tarea es comparar el código genetico entre dos paises para ver como ha mutado. Para su realización usaremos **la clase NeedlemanWunsch**.
+
+## 3.1 UrlSequence
+
+La clase UrlSequence **obtiene los datos ARN de la base de datos de la NCBI al pasarle un *accession***.
+
+Para proceder a la obtención de la secuencia ARN primero de todo usando el *accession* descargaremos la secuencia ARN en formato .fasta. Para conseguirlo usamos el método *urllib.request.urlretrieve(url, 'sequencesFASTA.fast')* que nos creará un fichero temporal con los datos de la secuencia. 
+
+A continuación, procederemos a su lectura. Iremos recorriendo todo el fichero con *.readLine()* borrando los espacios y intros si ubiese para al final añadirlo a nuestra base de datos propia. Esta base de datos ahora estará compuesta por **['Accession', 'Length', 'GeoLocation', 'ARN']**.
+
+En el Main, tendremos un bucle que llamará a esta classe para que busque el ARN de cada *accession* de la mediana de cada país, datos obtenidos del *1. Preprocesamiento*.
+
+
+
+## 3.2 NeedlemanWunsch
+
+blablabla
+
+
+
+# 4. Clasificación
+
+blablabla
+
+
+
+# 5. Conclusión
+
+blablabla
+
+
+
+---
+
+Drapythron Team © 2020
