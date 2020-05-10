@@ -78,6 +78,8 @@ Las herramientas usada para crear el proyecto han sido tres:
 * [Typora](https://typora.io/ "Typora: markdown editor") - Software para editar y leer ficheros markdown.
 * [Github](https://github.com/ "Github: web de desarrollo colaborativo") - Web para compartir los ficheros del proyecto entre los miembros del equipo.
 
+
+
 ## Licencia
 
 Este proyecto está bajo la Licencia de Creative Commons [Reconocimiento 4.0 Internacional](http://creativecommons.org/licenses/by/4.0/) que permite:
@@ -85,9 +87,13 @@ Este proyecto está bajo la Licencia de Creative Commons [Reconocimiento 4.0 Int
 * Compartir: copiar y redistribuir el material bajo cualquier medio y formato.
 * Adaptar: transformar, adaptar y construir el material para cualquier proposito, incluso comercial.
 
+
+
 ## Expresiones de Gratitud
 
 Queriamos mostrar nuestra más sincera expresión de gratitud a la **Universitat de Lleida** por adaptar-se a la situación actual devida al CoVid-19 intentando no perjudicar a los estudiantes y, en concreto al professor **Jordi Planes** por su esforzo para apoyar a los estudiantes.
+
+
 
 ---
 Drapythron Team © 2020
