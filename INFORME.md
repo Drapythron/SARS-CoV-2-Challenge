@@ -1,4 +1,4 @@
-# INFORME: SARS CoV-2 Challange (Drapythron)
+# INFORME: SARS CoV-2 Challenge (Drapythron)
 
 Los autores del SARS CoV-2 Challange y miembros del grupo Drapythron somos:
 
