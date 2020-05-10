@@ -1,6 +1,6 @@
 # INFORME: SARS CoV-2 Challenge (Drapythron)
 
-Los autores del SARS CoV-2 Challange y miembros del grupo Drapythron somos:
+Los autores del SARS CoV-2 Challenge y miembros del grupo Drapythron somos:
 
 - Sergio Beltrán Guerrero
 - Jaume Guasch Llobera
