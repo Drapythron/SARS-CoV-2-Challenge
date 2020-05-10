@@ -34,7 +34,7 @@ Para poder hacer un uso correcto del software necesitamos un fichero .csv con la
 
 Drapythron ya te proporciona el fichero *sequences.csv* pero el usuario puede usar su propio fichero. 
 
-Para obtener los datos del virus y que no haya sorpresas a posteriori recomendamos usar la página web de la *National Center for Biotechnology Information database* para descargar los datos ([NCBI database](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?VirusLineage_ss=Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), taxid:2697049&SeqType_s=Nucleotide "National Center for Biotechnology Information database")). Su correcta descarga seguiría este procedimiento:
+Para obtener los datos del virus y que no haya sorpresas a posteriori recomendamos usar la página web de la *National Center for Biotechnology Information database* para descargar los datos ([NCBI database](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?VirusLineage_ss=Severeacuterespiratorysyndromecoronavirus2(SARS-CoV-2),taxid:2697049&SeqType_s=Nucleotide "National Center for Biotechnology Information database")). Su correcta descarga seguiría este procedimiento:
 
 1. Seleccionar los **nucleotides** que queramos. A la izquiera podemos poner condiciones.
 2. Pulsar a **Download**.
@@ -55,8 +55,6 @@ Para tener una correcta instalación del programa solo es imprescindible que los
 
 
 ## Ejecución
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
 
 El programa funciona de forma automática, una vez es iniciado por el usuario no requiere que este interactue de ninguna manera. Al final del proceso se le devolverán los resultados esperados.
 
@@ -80,18 +78,12 @@ Las herramientas usada para crear el proyecto han sido tres:
 * [Typora](https://typora.io/ "Typora: markdown editor") - Software para editar y leer ficheros markdown.
 * [Github](https://github.com/ "Github: web de desarrollo colaborativo") - Web para compartir los ficheros del proyecto entre los miembros del equipo.
 
-
-
 ## Licencia
 
 Este proyecto está bajo la Licencia de Creative Commons [Reconocimiento 4.0 Internacional](http://creativecommons.org/licenses/by/4.0/) que permite:
 
 * Compartir: copiar y redistribuir el material bajo cualquier medio y formato.
 * Adaptar: transformar, adaptar y construir el material para cualquier proposito, incluso comercial.
-
-![Creative commons license](https://creativecommons.org/images/deed/cc_icon_white_x2.png)
-
-
 
 ## Expresiones de Gratitud
 
