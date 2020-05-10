@@ -33,7 +33,7 @@ class LecturaCSV:
                     # Cogemos la ubicación del sequences (ej: USA: CA) y la traduciremos en solo el país (USA)
 
                     if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introdizcamos algun dato vacio
-                        self.__sequences.append([accession, length, geoLocation])  # Añadimos la tupla con los datos
+                        self.__sequences.append([accession, length, geoLocation])  # Añadimos los datos
                         if self.__geoLocations.count(geoLocation) == 0:  # Añadimos los nuevos paises
                             self.__geoLocations.append(geoLocation)
 
