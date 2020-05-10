@@ -1,4 +1,4 @@
-# README: SARS-CoV-2-Challange (Drapythron)
+# README: SARS-CoV-2-Challenge (Drapythron)
 
 Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad científica es aconseguir una vacuna para el virus SARS-CoV-2. Uno de los problemas más significantes del coronavirus es su rápida mutación. Expertos en computación quieren clasificar las diferentes muestas de ARN para poder crear un árbol genalógico. 
 
