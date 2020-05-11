@@ -59,7 +59,7 @@ El programa funciona de forma automática, una vez es iniciado por el usuario no
 
 EXPLICACION
 
-![Code](C:\Users\PC Sergio\OneDrive\Universidad\CURSO 2\2º Semestre\ALGORITMICA Y COMPLEJIDAD\REPOSITORIOS\SARS-CoV-2-Challenge\code.png)
+![Code](code.png)
 
 
 
