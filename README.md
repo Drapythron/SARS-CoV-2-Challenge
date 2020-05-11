@@ -1,14 +1,20 @@
 # README: SARS-CoV-2-Challenge (Drapythron)
 
-Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad científica es aconseguir una vacuna para el virus SARS-CoV-2. Uno de los problemas más significantes del coronavirus es su rápida mutación. Expertos en computación quieren clasificar las diferentes muestas de ARN para poder crear un árbol genalógico. 
+Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad científica es conseguirá una vacuna para el virus SARS-CoV-2. Uno de los problemas más significantes del coronavirus es su rápida mutación. Expertos en computación quieren clasificar las diferentes muestras de ARN para poder crear un árbol genealógico.
 
-**El objetivo de esta práctica, reto (challenge) es clasificar las diferentes muestras del virus que hay en el mundo y mostrar su árbol genalógico.**
-
-
+**El objetivo de esta práctica, reto (challenge) es clasificar las diferentes muestras del virus que hay en el mundo y mostrar su árbol genealógico.**
 
 **Tabla de contenidos:** (en github online no aparece la tabla, en otros programas sí)
 
-[TOC]
+- [Autores](#Autores)
+- [Preparación](#Preparación)
+  - [Pre-requisitos](#Pre-requisitos)
+  - [Instalación](#Instalación)
+- [Ejecución](#Ejecución)
+- [Construcción](#Construcción)
+- [Licencia](#Licencia)
+- [Expresiones de Gratitud](#Expresiones-de-Gratitud)
+
 
 ## Autores  
 
@@ -21,12 +27,9 @@ Los integrantes del equipo somos:
 - Sebastian Bampton Blasco
 - Sergio Beltrán Guerrero
 
-
-
 ## Preparación
 
 Para un correcto funcionamiento del programa SARS-CoV-2-Challange de Drapythron solo necesitarás tener  acceso a la herramienta de programación Python y a Internet. Estos dos aspectos si los juntamos con los ficheros del software harán que el programa se desarrolle de forma satisfactoria.
-
 
 ### Pre-requisitos
 
@@ -42,23 +45,15 @@ Para obtener los datos del virus y que no haya sorpresas a posteriori recomendam
 4. En el paso 2: **Download Selected Records**.
 5. En el paso 3 las columnas que **hay que seleccionar al ser necesarias** para el correcto funcionamiento son: **Accession, Length y Geo Location**. La otra información no es necesaria.
 
-
-
 COMENTAR EL FITXER "LOCATIONS.CSV" ???
-
-
 
 ### Instalación
 
 Para tener una correcta instalación del programa solo es imprescindible que los ficheros .py no hayan sido modificados, y se mantengan todos juntos en una misma carpeta.
 
-
-
 ## Ejecución
 
 El programa funciona de forma automática, una vez es iniciado por el usuario no requiere que este interactue de ninguna manera. Al final del proceso se le devolverán los resultados esperados.
-
-
 
 ### Ejemplo de ejecución
 
@@ -68,17 +63,13 @@ EXPLICACION
 CODIGO DE EJEMPLO
 ```
 
-
-
-## Construido con
+## Construcción
 
 Las herramientas usada para crear el proyecto han sido tres:
 
 * [PyCharm](https://www.jetbrains.com/pycharm/ "PyCharm: Python tool") - Software para programar con Python.
 * [Typora](https://typora.io/ "Typora: markdown editor") - Software para editar y leer ficheros markdown.
 * [Github](https://github.com/ "Github: web de desarrollo colaborativo") - Web para compartir los ficheros del proyecto entre los miembros del equipo.
-
-
 
 ## Licencia
 
@@ -87,13 +78,9 @@ Este proyecto está bajo la Licencia de Creative Commons [Reconocimiento 4.0 Int
 * Compartir: copiar y redistribuir el material bajo cualquier medio y formato.
 * Adaptar: transformar, adaptar y construir el material para cualquier proposito, incluso comercial.
 
-
-
 ## Expresiones de Gratitud
 
 Queriamos mostrar nuestra más sincera expresión de gratitud a la **Universitat de Lleida** por adaptar-se a la situación actual devida al CoVid-19 intentando no perjudicar a los estudiantes y, en concreto al professor **Jordi Planes** por su esforzo para apoyar a los estudiantes.
-
-
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
