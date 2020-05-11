@@ -4,7 +4,7 @@ Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad
 
 **El objetivo de esta práctica, reto (challenge) es clasificar las diferentes muestras del virus que hay en el mundo y mostrar su árbol genealógico.**
 
-**Tabla de contenidos:** (en github online no aparece la tabla, en otros programas sí)
+**Tabla de contenidos:**
 
 - [Autores](#Autores)
 - [Preparación](#Preparación)
