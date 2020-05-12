@@ -97,7 +97,6 @@ if __name__ == '__main__':
             score = needlemanWunsch.getScore()
             countryScores[i].append((countrySequences[i][2], countrySequences[j][2], score))
             print((countrySequences[i][2], countrySequences[j][2], score))
-            
 ```
 
 ## Construcción
