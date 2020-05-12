@@ -117,7 +117,7 @@ Este proyecto está bajo la Licencia de Creative Commons [Reconocimiento 4.0 Int
 
 ## Expresiones de Gratitud
 
-Queriamos mostrar nuestra más sincera expresión de gratitud a la **Universitat de Lleida** por adaptar-se a la situación actual devida al CoVid-19 intentando no perjudicar a los estudiantes y, en concreto al professor **Jordi Planes** por su esforzo para apoyar a los estudiantes.
+Queriamos mostrar nuestra más sincera expresión de gratitud a la **Universitat de Lleida** por adaptar-se a la situación actual devida al CoVid-19 intentando no perjudicar a los estudiantes y, en concreto al professor **Jordi Planes** ([Github](https://github.com/jordiplanes)) por su esforzo para apoyar a los estudiantes.
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
