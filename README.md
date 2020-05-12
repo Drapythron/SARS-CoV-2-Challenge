@@ -33,7 +33,9 @@ Para un correcto funcionamiento del programa SARS-CoV-2-Challange de Drapythron 
 
 ### Pre-requisitos
 
-Para poder hacer un uso correcto del software necesitamos un fichero .csv con las secuencias a analizar.
+Para poder hacer un uso correcto del software necesitamos un fichero .csv con las secuencias a analizar y el *"locations.csv"*.
+
+#### "sequences.csv"
 
 Drapythron ya te proporciona el fichero *sequences.csv* pero el usuario puede usar su propio fichero. 
 
@@ -45,7 +47,11 @@ Para obtener los datos del virus y que no haya sorpresas a posteriori recomendam
 4. En el paso 2: **Download Selected Records**.
 5. En el paso 3 las columnas que **hay que seleccionar al ser necesarias** para el correcto funcionamiento son: **Accession, Length y Geo Location**. La otra información no es necesaria.
 
-COMENTAR EL FITXER "LOCATIONS.CSV" ???
+#### "locations.csv"
+
+El fichero *locations*  ya viene proporcionado pero si se usa un *sequences* que no es el proporcionado por Drapythron se tendrá que reajustar. El motivo por readequarlo es que en el futuro habrá más y más analisis y apareceran nuevos países y regiones que no estan contemplados.
+Para actualizar el fichero "locations.csv" observa como esta formado. En la primera fila, como todo fichero .csv hay todos los países, al final podremos añadir los nuevos paises que ya no haya sido apuntados.
+A continuació, tendremos que ir añadiendo hileras al final donde añadiremos las regiones / países. Para hacerlo correctamente tendremos que ir escribiento ; (puntos y comas) de forma unida hasta llegar a la que les corresponde a la columna del país dónde procederemos a escribir la región.
 
 ### Instalación
 
@@ -57,11 +63,8 @@ El programa funciona de forma automática, una vez es iniciado por el usuario no
 
 ### Ejemplo de ejecución
 
-EXPLICACION
-
-![Code](code.png)
-
-Cual os gusta mas??
+**AÑADIR EXPLICACIÓN!**
+Actualizar codigo si es necesario
 
 ```python
 import LecturaCSV
