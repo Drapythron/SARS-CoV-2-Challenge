@@ -11,9 +11,17 @@ El programa utilizado para programar el codigo han sido PyCharm donde hemos trab
 
 El informe lo dividiremos en una introducció, las diferentes partes de la práctica: preprocesamiento, alineamiento sequencial y clasificación, y, conlusión. Dentro de cada sección ya habrá más apardos si es conveniente.
 
-**Tabla de contenidos:** (en github online no aparece la tabla, en otros programas sí)
+**Tabla de contenidos:**
 
-[TOC]
+- [0. Introducción](#0.-Introducción)
+- [1. Preprocesamiento](#1.-Preprocesamiento)
+  - [1.1 Lectura de archivos .csv](## 1.1 Lectura de archivos .csv)
+  - [1.2 Función mediana(geoLocation)](##1.2-Función-mediana(geoLocation))
+- [3. Alineamiento sequencial](#3.-Alineamiento-sequencial)
+   - [3.1 UrlSequence](##3.1-UrlSequence)
+   - [3.2 NeedlemanWunsch](##-3.2-NeedlemanWunsch)
+- [4. Clasificación](#4.-Clasificación)
+- [5. Conclusión](#5.-Conclusión)
 
 # 0. Introducción
 
@@ -185,5 +193,6 @@ blablabla
 
 
 ---
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
 
 Drapythron Team © 2020
