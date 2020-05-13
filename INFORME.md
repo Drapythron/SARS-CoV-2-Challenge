@@ -7,9 +7,9 @@ Los autores del SARS CoV-2 Challenge y miembros del grupo Drapythron somos:
 - Sebastian Bampton Blasco
 - Martí Serratosa Sedó
 
-El programa utilizado para programar el codigo han sido PyCharm donde hemos trabajado con classes. Hay clases que corresponden exactamente con partes de la pràctica y otras partes tienen más de una classe. Para el redactado en markdown hemos utilizado Typora, tanto el informe como el readme han sido únicamente trabajados con markdown.
+El programa utilizado para programar el código han sido PyCharm donde hemos trabajado con clases. Hay clases que corresponden exactamente con partes de la práctica y otras partes tienen más de una clase. Para el redactado en markdown hemos utilizado Typora, tanto el informe como el readme han sido únicamente trabajados con markdown.
 
-El informe lo dividiremos en una introducció, las diferentes partes de la práctica: preprocesamiento, alineamiento sequencial y clasificación, y, conlusión. Dentro de cada sección ya habrá más apardos si es conveniente.
+El informe lo dividiremos en una introducción, las diferentes partes de la práctica: preprocesamiento, alineamiento sequencial y clasificación, y, conclusión. Cada sección con sus apartados convenientes.
 
 **Tabla de contenidos:**
 
@@ -25,11 +25,11 @@ El informe lo dividiremos en una introducció, las diferentes partes de la prác
 
 # 0. Introducción
 
-Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad científica es aconseguir una vacuna para el virus SARS-CoV-2. Uno de los problemas más significantes del coronavirus es su rápida mutación. Expertos en computación quieren clasificar las diferentes muestas de ARN para poder crear un árbol genalógico.
+Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad científica es hallar una vacuna para el virus SARS-CoV-2. Uno de los problemas más significantes del coronavirus, es su rápida mutación. Expertos en computación quieren clasificar las diferentes muestras de ARN para poder crear un árbol genealógico.
 
-**El objetivo de esta práctica, reto (challenge) es clasificar las diferentes muestras del virus que hay en el mundo y mostrar su árbol genalógico.**
+**El objetivo de esta práctica, reto (challenge) es clasificar las diferentes muestras del virus que hay en el mundo y mostrar su árbol genealógico.**
 
-La ejecucion del programa se realiza en el Main.py este a su vez llamará otras classes para poder realizar las funciones deseadas. El orden de uso de la diferentes clases es el siguiente:
+La ejecución del programa se realiza en el Main.py este a su vez llamará otras clases para poder realizar las funciones deseadas. El orden de uso de la diferentes clases es el siguiente:
 
 1. LecturaCSV
 2. UrlSequence
@@ -54,7 +54,7 @@ En nuestro programa leeremos dos archivos. Primero uno de creación propia que c
 
 ### 1.1.1 Lectura del archivo *geoLocations.csv*
 
-Primero abriremos el archivo .csv que hemos creado anteriorment. Este archivo tiene este tipo de formato:
+Primero abriremos el archivo .csv que hemos creado anteriormente. Este archivo tiene este tipo de formato:
 
 | Iraq | Tunisia        | China                | South Africa                 |
 | ---- | -------------- | -------------------- | ---------------------------- |
@@ -82,7 +82,7 @@ La función saveGeoLocations básicamente hace dos cosas al tratar el fichero:
 
 Devuelve *locations*.
 
-El coste de este proceso es **O(n<sup>2</sup>)**, donde n es el número de líneas del archivo csv por su profundiad.
+El coste de este proceso es **O(n<sup>2</sup>)**, donde n es el número de líneas del archivo csv por su profundidad.
 
 
 
@@ -121,11 +121,11 @@ Una vez tenemos el resultado tenemos la mediana, podemos realizar dos opciones:
 
 2. Sí la mediana no esta contenida en la lista, buscaremos el valor que más se acerque a la mediana.
 
-   ```pyton
+   ```python
    result = analysisList[min(range(len(idems)), key = lambda i: abs(idems[i] - median))]
    ```
 
-Una vez tenemos la posición de la mediana en la lista, devolveremos la tupla en la posición de 'analysisiList'
+Una vez tenemos la posición de la mediana en la lista, devolveremos la tupla en la posición de 'analysisList'
 
 Este proceso tiene un coste de ***O(n)***, donde n es el tamaño de 'sequences'.
 
@@ -137,7 +137,7 @@ En definitiva, el proceso de lectura del archivo csv y la devolución de la medi
 
 Esta función nos sirve para encontrar la mediana de los valores de la lista. La mediana devuelve el valor que se encuentra en medio de la lista.
 
-Para ello primero tendremos que ordenar la lista, nosaltros utilizamos el métode de *Divide y Vencerás* [**Merge Sort**](https://en.wikipedia.org/wiki/Merge_sort) (explicado en el siguiente apartado).
+Para ello primero tendremos que ordenar la lista, nosotros hemos utilizamos el métode de *Divide y Vencerás* [**Merge Sort**](https://en.wikipedia.org/wiki/Merge_sort) (explicado en el siguiente apartado).
 
 Según la longitud de la lista (si finaliza en impar o par) la mediana puede encontrarse en un único número (impar), o entre dos posiciones (par).
 
@@ -155,7 +155,7 @@ En el algoritmo dividimos la lista proporcionada en dos partes, siendo la única
 
 Una vez hemos obtenido listas formadas por uno/dos elemento(s), compararemos los valores y ordenaremos las listas, una vez realizada la ordenación de los elementos en las listas, concatenamos las listas para reducir todos los elementos a una sola lista ordenada, la cual devolvemos.
 
-# 3. Alineamiento sequencial
+# 3. Alineamiento secuencial
 
 La segunda parte de la práctica consiste en realizar dos tareas. 
 
@@ -168,17 +168,24 @@ La clase UrlSequence **obtiene los datos ARN de la base de datos de la NCBI al p
 
 Para proceder a la obtención de la secuencia ARN primero de todo usando el *accession* descargaremos la secuencia ARN en formato .fasta. Para conseguirlo usamos el método *urllib.request.urlretrieve(url, 'sequencesFASTA.fast')* que nos creará un fichero temporal con los datos de la secuencia. 
 
-A continuación, procederemos a su lectura. Iremos recorriendo todo el fichero con *.readLine()* borrando los espacios y intros si ubiese para al final añadirlo a nuestra base de datos propia. Esta base de datos ahora estará compuesta por **['Accession', 'Length', 'GeoLocation', 'ARN']**.
+A continuación, procederemos a su lectura. Iremos recorriendo todo el fichero con *.readLine()* borrando los espacios y intros si hubiesen, para al final añadirlo a nuestra base de datos propia. Esta base de datos estará compuesta por **['Accession', 'Length', 'GeoLocation', 'ARN']**.
 
-En el Main, tendremos un bucle que llamará a esta classe para que busque el ARN de cada *accession* de la mediana de cada país, datos obtenidos del *1. Preprocesamiento*.
+En el Main, tendremos un bucle que llamará a esta clase para que busque el ARN de cada *accession* de la mediana de cada país, datos obtenidos del *1. Preprocesamiento*.
 
 
 
 ## 3.2 NeedlemanWunsch
 
-blablabla
+Este algoritmo nos ayudará a obtener una puntación en base al alineamiento de dos códigos genéticos de distintos países.
+El alineamiento de secuencias es una forma de comparar dos secuencias haciendo hincapié en las zonas donde hay similitudes.
+NeedlemanWunsch es el algoritmo más utilizado para comparar código genético. 
+Se trata de un algoritmo de orden ***O(nm)***.
+
+Desde el main.py iremos comparando las secuencias de dos en dos. Que nos irá retornando un resultado en función de la similitud.
 
 
+
+           
 
 # 4. Clasificación
 
