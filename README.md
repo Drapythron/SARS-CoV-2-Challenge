@@ -63,8 +63,8 @@ El programa funciona de forma automática, una vez es iniciado por el usuario no
 
 ### Ejemplo de ejecución
 
-**AÑADIR EXPLICACIÓN!**
-Actualizar codigo si es necesario
+La ejecución de la práctica se realiza en el *Main.py*. El fichero empieza leyendo las secuencias y calculando las medianas de los países. A continuación descarga de Internet la secuencia *.fasta* de ARN de la mediana de cada país. A continuación, alineamos los países con el mètodo NeedlemanWunsch de dónde extraeremos una puntuación que nos indica la similutud del la secuencia entre dos muestras del Covid-19 en dos países. Finalmente, clasificamos los datos para poder ver mejor los resultados extraidos.
+**ACTUALIZAR CODIGO CON LA TERCERA PARTE!**
 
 ```python
 import LecturaCSV
