@@ -155,6 +155,7 @@ En el algoritmo dividimos la lista proporcionada en dos partes, siendo la única
 
 Una vez hemos obtenido listas formadas por uno/dos elemento(s), compararemos los valores y ordenaremos las listas, una vez realizada la ordenación de los elementos en las listas, concatenamos las listas para reducir todos los elementos a una sola lista ordenada, la cual devolvemos.
 
+
 # 3. Alineamiento secuencial
 
 La segunda parte de la práctica consiste en realizar dos tareas. 
@@ -181,7 +182,7 @@ El alineamiento de secuencias es una forma de comparar dos secuencias haciendo h
 NeedlemanWunsch es el algoritmo más utilizado para comparar código genético. 
 Se trata de un algoritmo de orden ***O(nm)***.
 
-Desde el main.py iremos comparando las secuencias de dos en dos. Que nos irá retornando un resultado en función de la similitud.
+Desde el main.py iremos llamando a la función que ejecute el algoritmo NeedlemanWunsch para que se haga una comparación de las secuencias de dos en dos, y esta función nos irá devolviendo un resultado en función del grado de similitud de ambas funciones.
 
 
 
