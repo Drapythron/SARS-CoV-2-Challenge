@@ -17,10 +17,10 @@ El informe lo dividiremos en una introducción, las diferentes partes de la prá
 - [1. Pre-procesamiento](#1-pre-procesamiento)
   - [1.1 Lectura de archivos.csv](#11-lectura-de-archivos-csv)
   - [1.2 Método mediana(geoLocation)](#12-método-medianageolocation)
-- [3. Alineamiento sequencial](#3-Alineamiento-sequencial)
-  - [3.1 UrlSequence](##31-UrlSequence)
-  - [3.2 NeedlemanWunsch](##-32-NeedlemanWunsch)
-- [4. Clasificación](#4-Clasificación)
+- [3. Alineamiento sequencial](#3-alineamiento-secuencial)
+  - [3.1 UrlSequence](#31-urlSequence)
+  - [3.2 NeedlemanWunsch](#32-needlemanwunsch)
+- [4. Clasificación](#4-clasificación)
 - [5. Conclusión](#5-conclusión)
 
 # 0. Introducción
