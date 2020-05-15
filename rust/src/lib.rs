@@ -123,7 +123,7 @@ fn score(_mat: Matrix<isize>) -> isize {
     let length1 = _mat.rows();
     let length2 = _mat.cols();
 
-    let score = _mat.get(length1, length2).unwrap();
+    let score = _mat.get(length1 - 1, length2 - 1).unwrap();
 
     *score as isize
 }
