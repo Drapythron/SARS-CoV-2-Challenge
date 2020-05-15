@@ -14,8 +14,8 @@ El informe lo dividiremos en una introducción, las diferentes partes de la prá
 **Tabla de contenidos:**
 
 - [0. Introducción](#0-Introducción)
-- [1. Preprocesamiento](#1-pre-procesamiento)
-  - [1.1 Lectura de archivos.csv](##-11-Lectura-de-archivos-.csv)
+- [1. Pre-procesamiento](#1-pre-procesamiento)
+  - [1.1 Lectura de archivos.csv](##-11-Lectura-de-archivos-csv)
   - [1.2 Función mediana(geoLocation)](##12-Función-mediana(geoLocation))
 - [3. Alineamiento sequencial](#3-Alineamiento-sequencial)
   - [3.1 UrlSequence](##31-UrlSequence)
