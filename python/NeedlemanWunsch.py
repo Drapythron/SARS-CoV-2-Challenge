@@ -116,4 +116,12 @@ class NeedlemanWunsch:
                 posJ = self.__RNA.index(self.__alineament2[i])
                 score += self.__similarityMatrix[posI][posJ]
 
-        return score
+        #CREMOS LA NUEVA PUNTUACIÓN DE 0 A 100
+
+        score += len(self.__alineament1)
+
+        newScore = (score / (len(self.__alineament1) * 2)) * 100
+
+        newScore = 100 - newScore
+
+        return newScore

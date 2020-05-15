@@ -159,16 +159,48 @@ En el init, tendremos un bucle que llamará a esta clase para que busque el ARN 
 
 ## 3.2 NeedlemanWunsch
 
-Este algoritmo nos ayudará a obtener una puntación en base al alineamiento de dos códigos genéticos de distintos países.
+Este algoritmo nos ayudará a obtener una puntuación en base al alineamiento de dos códigos genéticos de distintos países.
 El alineamiento de secuencias es una forma de comparar dos secuencias haciendo hincapié en las zonas donde hay similitudes.
-NeedlemanWunsch es el algoritmo más utilizado para comparar código genético. 
+NeedlemanWunsch es el algoritmo más utilizado para comparar código genético.
 Se trata de un algoritmo de orden ***O(nm)***.
 
-Desde el main.py iremos llamando a la función que ejecute el algoritmo NeedlemanWunsch para que se haga una comparación de las secuencias de dos en dos, y esta función nos irá devolviendo un resultado en función del grado de similitud de ambas funciones.
+Como ya hemos comentado anteriormente, hemos realizado dos implementaciónes de este algoritmo.
 
+Primero de todo, vamos a aclarar las cosas que hay en común en las dos implementaciones.
 
+- Los pesos para comparar son: **gap** = -1, **match** = 1 y **mismatch** = -1.
 
-           
+- Hemos remplazado los ácidos nucleicos que no son estándar por los estándar. El criterio que hemos seguido es el siguiente, hay ácidos nucleicos que pueden significar dos o más ácidos, por lo tanto, hemos escogido uno de los ácidos que puede significar. La siguiente tabla lo deja todo claro.
+
+|Código de ácido nucleico |Significado |Ácido escogido|
+|-------------------------|------------|--------------|
+|N                        |A, G, C, T  |A             |
+|B                        |G, T, C     |G             |
+|Y                        |T, C        |T             |
+
+### 3.2.1 Needleman-Wunsch en Python
+
+Para realizar esta implementación nos hemos basado en el pseudo-código de [Wikipedia](https://es.wikipedia.org/wiki/Algoritmo_Needleman-Wunsch). El código lo hemos dividido en tres partes, la primera que nos inicia la matriz con sus pesos. Una vez tenemos la matriz creada, llamamos al método `__alignment`, para que nos realice la alineación de las secuencias usando programación dinámica. Una vez acaba el algoritmo obtenemos dos String, que estos son las secuencias alineadas. Y finalmente, para obtener la puntuación, compararemos uno a uno los ácidos de las dos secuencias, para devolver su puntuación.
+A la hora de puntuar, hemos decidido que el rango de puntuación sea de [0, 100], 0 significara que son iguales y 100 que son totalmente distintas. El criterio que hemos utilizado para devolver esta puntuación es el siguiente:
+
+  1. Como hemos escogido que, gap = -1, match = 1 y mismatch = -1, tendremos que el rango de puntuación seá [-len(secuencia_alienada), len(secuencia_alineada)].
+
+  2. Desplazaremos a la derecha el rango para que todos los valores sean positivos, [0, len(secuencia_alineada)*2] y también desplazaremos la puntuación obtenida tal que así: `puntuación + len(secuencia_alineada)`.
+
+  3. Realizaremos una simple regla de 3.
+
+  ``` r
+
+    (puntuación_desplazada / len(secuencia_alineada)*2) * 100 = nueva_puntuación
+
+    nueva_puntuación = 100 - nueva_puntuación
+
+  ```
+
+### 3.2.1 Needleman-Wunsch en Rust
+
+Para mejorar la velocidad del algoritmo hemos implementado el algoritmo anterior en el lenguaje de Programación [Rust](https://www.rust-lang.org/es/). Hemos creado una [librería](rust/src/lib.rs) en Rust con las funciones de alinear y puntuación. Una vez creada la hemos compilado y importado a nuestro código en Python.
+A la hora de implementar el código en Rust, hemos importado una librería que se llama *Simple_Matrix*, la cual nos crea una matriz de enteros, con la que trabajaremos. Las demás implementaciones son igual que en python pero traducido a Rust.
 
 # 4. Clasificación
 
@@ -185,4 +217,4 @@ blablabla
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
 
-Drapythron Team © 2020
+Drapython Team © 2020

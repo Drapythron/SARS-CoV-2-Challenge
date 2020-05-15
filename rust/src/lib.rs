@@ -10,13 +10,11 @@ fn needleman_wunsch_rust(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_wrapped(wrap_pyfunction!(get_alignment))?;
     m.add_wrapped(wrap_pyfunction!(get_score))?;
 
-
     Ok(())
 }
 
 #[pyfunction]
 fn get_alignment(mut _seq1: String, mut _seq2: String) -> PyResult<Vec<String>> {
-
     let mut sequences: Vec<String> = change_sequences(_seq1, _seq2);
 
     //Convertimos el string en un vector Ej: "ABC" en ['A', 'B', 'C']
@@ -26,7 +24,6 @@ fn get_alignment(mut _seq1: String, mut _seq2: String) -> PyResult<Vec<String>> 
 
     let seq1_vec: Vec<char> = _seq11.chars().collect();
     let seq2_vec: Vec<char> = _seq21.chars().collect();
-
 
     let alignment: Vec<String> = alignment(seq1_vec, seq2_vec, 1, -1, -1);
 
@@ -46,7 +43,13 @@ fn get_score(_ali1: String, _ali2: String) -> PyResult<f64> {
 
 //FUNCIONES PRINCIPALES
 
-fn initialize_matrix(_seq1: Vec<char>, _seq2: Vec<char>, _mach: isize, _gap: isize, _mismatch: isize) -> Matrix<isize> {
+fn initialize_matrix(
+    _seq1: Vec<char>,
+    _seq2: Vec<char>,
+    _mach: isize,
+    _gap: isize,
+    _mismatch: isize,
+) -> Matrix<isize> {
     //Creamos la matriz
     let row_size = _seq1.len() + 1;
     let col_size = _seq2.len() + 1;
@@ -63,7 +66,7 @@ fn initialize_matrix(_seq1: Vec<char>, _seq2: Vec<char>, _mach: isize, _gap: isi
     pos = 0;
     for j in 0..col_size {
         let score = pos * _gap;
-        _mat.set(0, j, score.try_into().unwrap()); 
+        _mat.set(0, j, score.try_into().unwrap());
         pos += 1;
     }
     //Creamos la matriz con los pesos
@@ -97,21 +100,23 @@ fn initialize_matrix(_seq1: Vec<char>, _seq2: Vec<char>, _mach: isize, _gap: isi
     _mat
 }
 
-fn alignment(_seq1: Vec<char>, _seq2: Vec<char>, _mach: isize, _gap: isize, _mismatch: isize) -> Vec<String> {
-    
+fn alignment(
+    _seq1: Vec<char>,
+    _seq2: Vec<char>,
+    _mach: isize,
+    _gap: isize,
+    _mismatch: isize,
+) -> Vec<String> {
     let _seq11: Vec<char> = _seq1.clone();
     let _seq21: Vec<char> = _seq2.clone();
-    
+
     let _mat: Matrix<isize> = initialize_matrix(_seq11, _seq21, _mach, _gap, _mismatch);
 
     let mut _alignment1: Vec<char> = Vec::new();
     let mut _alignment2: Vec<char> = Vec::new();
 
-    
     let mut i = _seq1.len();
     let mut j = _seq2.len();
-
-
 
     //Comenzamos desde el final y vamos analizando si el peso viene de la izq, de arriba o de la diagonal.
 
@@ -206,28 +211,27 @@ fn change_sequences(mut _seq1: String, mut _seq2: String) -> Vec<String> {
     result
 }
 
-fn score(_alignment: Vec<String>, _mach: i32, _gap: i32, _mismatch:i32) -> f64 {
-    let _alignment1 : Vec<char> = _alignment[0].chars().collect();
-    let _alignment2 : Vec<char> = _alignment[1].chars().collect();
+fn score(_alignment: Vec<String>, _mach: i32, _gap: i32, _mismatch: i32) -> f64 {
+    let _alignment1: Vec<char> = _alignment[0].chars().collect();
+    let _alignment2: Vec<char> = _alignment[1].chars().collect();
 
     let length = _alignment1.len();
 
     let mut score = 0;
 
     for i in 0..length {
-
-        if _alignment1[i] !=_alignment2[i] {
+        if _alignment1[i] != _alignment2[i] {
             score += _mismatch;
-        }else if _alignment1[i] ==_alignment2[i] {
+        } else if _alignment1[i] == _alignment2[i] {
             score += _mach;
-        }else {
+        } else {
             score += _gap;
         }
     }
     //Modificar la puntuación
 
     score += length as i32;
-    let mut new_score = (score as f64 / (length*2) as f64) * 100.0;
+    let mut new_score = (score as f64 / (length * 2) as f64) * 100.0;
     new_score = 100.0 - new_score;
 
     new_score
