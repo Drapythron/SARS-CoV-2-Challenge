@@ -11,11 +11,11 @@ class UrlSequence:
     def __callFile(self):
         # Enlace de descarga, finaliza con el accession a descargar
         url = ('http://www.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&rettype=fasta&id=' + self.__accession)
-        urllib.request.urlretrieve(url, 'sequencesFASTA.fasta') # Obtenemos fichero con la sequencia ARN
+        urllib.request.urlretrieve(url, 'data/sequencesFASTA.fasta') # Obtenemos fichero con la secuencia ARN
 
     def getSequence(self):  
         # Leemos el fichero fasta con la sequencia de ARN
-        seqFASTA = open('sequencesFASTA.fasta')
+        seqFASTA = open('data/sequencesFASTA.fasta')
         reader = seqFASTA.readline()
         reader = seqFASTA.readline()
         while len(reader) != 0:

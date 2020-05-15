@@ -3,10 +3,9 @@ import UrlSequence
 import NeedlemanWunsch
 import NeedlemanWunschRust
 
-
 if __name__ == '__main__':
 
-    seq = LecturaCSV.LecturaCSV('sequences.csv', 'geoLocations.csv')
+    seq = LecturaCSV.LecturaCSV('data/sequences.csv', 'data/geoLocations.csv')
     countrySequences = seq.median() #Este metodo devuelve una lista con todas las tuplas de los país
 
     #LLAMAMOS A LA CLASE 'UrlSequence' PARA OBTENER LAS SECUENCIAS DE ARN DE LOS PAÍSES DESDE LA WEB
@@ -18,7 +17,8 @@ if __name__ == '__main__':
     #GURDAMOS LOS SCORES EN UNA TABLA
 
     countryScores = []
-    needWunschRust = NeedelemanWunschRust.NeedlemanWunschRust()
+    needWunschRust = NeedlemanWunschRust.NeedlemanWunschRust()
+
     print('Alineando paises...')
     for i in range(len(countrySequences)-1):
         countryScores.append([])
