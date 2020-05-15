@@ -13,23 +13,21 @@ fn needleman_wunsch_rust(_py: Python, m: &PyModule) -> PyResult<()> {
 }
 
 #[pyfunction]
-fn get_score(_seq1: String, _seq2: String) -> PyResult<f64> {
+fn get_score(_seq1: String, _seq2: String) -> PyResult<isize> {
     let mut sequences: Vec<String> = change_sequences(_seq1, _seq2);
-    
+
     let _seq11: String = sequences.pop().unwrap();
     let _seq21: String = sequences.pop().unwrap();
 
     let seq1_vec: Vec<char> = _seq11.chars().collect();
     let seq2_vec: Vec<char> = _seq21.chars().collect();
 
-    let _mat: Matrix<isize> = initialize_matrix(_seq11, _seq21, 1, -1, -1);
+    let _mat: Matrix<isize> = initialize_matrix(seq1_vec, seq2_vec, 1, -1, -1);
 
-    let result: f64 = score();
+    let result: isize = score(_mat);
 
     Ok(result)
 }
-
-
 
 //FUNCIONES PRINCIPALES
 
@@ -121,17 +119,11 @@ fn change_sequences(mut _seq1: String, mut _seq2: String) -> Vec<String> {
     result
 }
 
-fn score(_mat: Matrix<isize>) -> f64 {
+fn score(_mat: Matrix<isize>) -> isize {
     let length1 = _mat.rows();
     let length2 = _mat.cols();
-    let max = cmp::(length1, length2);
 
-    let mut score = _mat.get(length1, length2);
-    //Modificar la puntuación
+    let score = _mat.get(length1, length2).unwrap();
 
-    score += max as i32;
-    let mut new_score = (score as f64 / (length * 2) as f64) * 100.0;
-    new_score = 100.0 - new_score;
-
-    new_score
+    *score as isize
 }

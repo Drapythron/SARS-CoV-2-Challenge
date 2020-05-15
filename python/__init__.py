@@ -26,8 +26,7 @@ if __name__ == '__main__':
             seq1 = countrySequences[i][3]
             seq2 = countrySequences[j][3]
             
-            needWunschRust.newEntry(seq1, seq2)
-            score = needWunschRust.getScore()
+            score = needWunschRust.getScore(seq1, seq2)
 
             countryScores[i].append((countrySequences[i][2], countrySequences[j][2], score))
             print((countrySequences[i][2], countrySequences[j][2], "{0:.2f}".format(score)))
