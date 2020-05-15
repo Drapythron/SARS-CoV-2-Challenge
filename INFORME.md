@@ -144,7 +144,7 @@ La segunda parte de la práctica consiste en realizar dos tareas.
 
 * La primera tarea es la lectura del ARN de cada nucleotido de la mediana del país encontrada en la primera parte. Para realizar esta tarea usaremos la [**Clase UrlSequence**](python\UrlSequence.py).
 * La segunda tarea consiste en alinear las secuencias de ARN y compararlas. Esta tarea la hemos implementado de dos formas. Usando el lenguaje de programación Python y usando el lenguaje de programación Rust.
-  + La [**Clase NeedlemanWunsch**](python\NeedlemanWunsch.py) es la clase que hemos implementado en Python.
+  + La [**Clase NeedlemanWunsch**](python/NeedlemanWunsch.py) es la clase que hemos implementado en Python.
   + La [**Clase NeedlemanWunschRust**](python\NeedlemanWunschRust.py)  es la clase que hemos implementado en Rust.
 
 ## 3.1 UrlSequence
