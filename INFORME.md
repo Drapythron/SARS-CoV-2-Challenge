@@ -16,7 +16,7 @@ El informe lo dividiremos en una introducción, las diferentes partes de la prá
 - [0. Introducción](#0-Introducción)
 - [1. Pre-procesamiento](#1-pre-procesamiento)
   - [1.1 Lectura de archivos.csv](#11-lectura-de-archivos-csv)
-  - [1.2 Función mediana(geoLocation)](##12-Función-mediana(geoLocation))
+  - [1.2 Método mediana(geoLocation)](#12-método-medianageolocation)
 - [3. Alineamiento sequencial](#3-Alineamiento-sequencial)
   - [3.1 UrlSequence](##31-UrlSequence)
   - [3.2 NeedlemanWunsch](##-32-NeedlemanWunsch)
