@@ -1,6 +1,5 @@
 import csv
 
-
 class LecturaCSV:
     __sequences = []
     __geoLocations = []
@@ -21,7 +20,7 @@ class LecturaCSV:
     def __openAndSaveFile(self):
         with open(self.__fileSequences, newline='') as File:
             with open(self.__fileGeoLocations, newline='') as LocationsFile:
-                # Abrimos fichero con los datos de las regiones y paises
+                # Abrimos fichero con los datos de las regiones y países
                 reader = csv.reader(LocationsFile, delimiter=';')
                 locations = self.__saveGeoLocation(reader)
                 reader = csv.reader(File)
@@ -32,9 +31,9 @@ class LecturaCSV:
                     geoLocation = self.__newLocation(row[12], locations)
                     # Cogemos la ubicación del sequences (ej: USA: CA) y la traduciremos en solo el país (USA)
 
-                    if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introdizcamos algun dato vacio
+                    if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introduzcamos algún dato vacío
                         self.__sequences.append([accession, length, geoLocation])  # Añadimos los datos
-                        if self.__geoLocations.count(geoLocation) == 0:  # Añadimos los nuevos paises
+                        if self.__geoLocations.count(geoLocation) == 0:  # Añadimos los nuevos países
                             self.__geoLocations.append(geoLocation)
 
     def __mediana(self, geoLocation):
@@ -81,7 +80,7 @@ class LecturaCSV:
         result += dataR[j:]
         return result
 
-    def __median(self, list):  # Función màtematica de la mediana
+    def __median(self, list):  # Función matemática de la mediana
         list = self.__mergeSort(list)
         n = len(list)
         if n % 2 == 1:
@@ -94,12 +93,12 @@ class LecturaCSV:
         locations = []
         row1 = next(reader)
         for loc in row1:
-            locations.append([loc])  # Vamos saparando los diferentes paises
+            locations.append([loc])  # Vamos separando los diferentes países
         for row in reader:
             pos = 0
             for loc in row:
                 if loc != '':
-                    locations[pos].append(loc)  # Dentro de cada pais, añadimos todas sus diferentes ubicaciones
+                    locations[pos].append(loc)  # Dentro de cada país, añadimos todas sus diferentes ubicaciones
                 pos += 1
         return locations
 

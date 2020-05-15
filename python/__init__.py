@@ -1,7 +1,7 @@
 import LecturaCSV
 import UrlSequence
 import NeedlemanWunsch
-import NeedelemanWunschRust
+import NeedlemanWunschRust
 
 
 if __name__ == '__main__':
