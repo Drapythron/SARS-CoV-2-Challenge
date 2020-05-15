@@ -7,39 +7,29 @@ use std::convert::TryInto;
 
 #[pymodule]
 fn needleman_wunsch_rust(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_wrapped(wrap_pyfunction!(get_alignment))?;
     m.add_wrapped(wrap_pyfunction!(get_score))?;
 
     Ok(())
 }
 
 #[pyfunction]
-fn get_alignment(mut _seq1: String, mut _seq2: String) -> PyResult<Vec<String>> {
+fn get_score(_seq1: String, _seq2: String) -> PyResult<f64> {
     let mut sequences: Vec<String> = change_sequences(_seq1, _seq2);
-
-    //Convertimos el string en un vector Ej: "ABC" en ['A', 'B', 'C']
-
+    
     let _seq11: String = sequences.pop().unwrap();
     let _seq21: String = sequences.pop().unwrap();
 
     let seq1_vec: Vec<char> = _seq11.chars().collect();
     let seq2_vec: Vec<char> = _seq21.chars().collect();
 
-    let alignment: Vec<String> = alignment(seq1_vec, seq2_vec, 1, -1, -1);
+    let _mat: Matrix<isize> = initialize_matrix(_seq11, _seq21, 1, -1, -1);
 
-    Ok(alignment)
-}
-
-#[pyfunction]
-fn get_score(_ali1: String, _ali2: String) -> PyResult<f64> {
-    let mut alignments: Vec<String> = Vec::new();
-    alignments.push(_ali1);
-    alignments.push(_ali2);
-
-    let result: f64 = score(alignments, 1, -1, -1);
+    let result: f64 = score();
 
     Ok(result)
 }
+
+
 
 //FUNCIONES PRINCIPALES
 
@@ -100,86 +90,6 @@ fn initialize_matrix(
     _mat
 }
 
-fn alignment(
-    _seq1: Vec<char>,
-    _seq2: Vec<char>,
-    _mach: isize,
-    _gap: isize,
-    _mismatch: isize,
-) -> Vec<String> {
-    let _seq11: Vec<char> = _seq1.clone();
-    let _seq21: Vec<char> = _seq2.clone();
-
-    let _mat: Matrix<isize> = initialize_matrix(_seq11, _seq21, _mach, _gap, _mismatch);
-
-    let mut _alignment1: Vec<char> = Vec::new();
-    let mut _alignment2: Vec<char> = Vec::new();
-
-    let mut i = _seq1.len();
-    let mut j = _seq2.len();
-
-    //Comenzamos desde el final y vamos analizando si el peso viene de la izq, de arriba o de la diagonal.
-
-    while i > 0 && j > 0 {
-        let score = _mat.get(i, j).unwrap();
-        let score_diag = _mat.get(i - 1, j - 1).unwrap();
-        let score_up = _mat.get(i - 1, j).unwrap();
-        let score_left = _mat.get(i, j - 1).unwrap();
-
-        let score_nuc;
-        let _nuc1 = _seq1[i - 1];
-        let _nuc2 = _seq2[j - 1];
-        if _nuc1 == _nuc2 {
-            score_nuc = _mach;
-        } else {
-            score_nuc = _mismatch;
-        }
-
-        if score.eq(&(score_diag + score_nuc)) {
-            _alignment1.push(_nuc1);
-            _alignment2.push(_nuc2);
-            i -= 1;
-            j -= 1;
-        } else if score.eq(&(score_left + _gap)) {
-            _alignment1.push('-');
-            _alignment2.push(_nuc2);
-            j -= 1;
-        } else if score.eq(&(score_up + _gap)) {
-            _alignment1.push(_nuc1);
-            _alignment2.push('-');
-            i -= 1;
-        }
-    }
-
-    while i > 0 {
-        let _nuc1 = _seq1[i - 1];
-        _alignment1.push(_nuc1);
-        _alignment2.push('-');
-
-        i -= 1;
-    }
-
-    while j > 0 {
-        let _nuc2 = _seq2[j - 1];
-        _alignment1.push('-');
-        _alignment2.push(_nuc2);
-        j -= 1;
-    }
-
-    //Para invertir el alineamiento
-    _alignment1.reverse();
-    _alignment2.reverse();
-
-    let mut result: Vec<String> = Vec::new();
-
-    let _ali1: String = _alignment1.into_iter().collect();
-    result.push(_ali1);
-    let _ali2: String = _alignment2.into_iter().collect();
-    result.push(_ali2);
-
-    result
-}
-
 fn change_sequences(mut _seq1: String, mut _seq2: String) -> Vec<String> {
     _seq1 = str::replace(&_seq1, "N", "A");
     _seq1 = str::replace(&_seq1, "K", "G");
@@ -211,26 +121,15 @@ fn change_sequences(mut _seq1: String, mut _seq2: String) -> Vec<String> {
     result
 }
 
-fn score(_alignment: Vec<String>, _mach: i32, _gap: i32, _mismatch: i32) -> f64 {
-    let _alignment1: Vec<char> = _alignment[0].chars().collect();
-    let _alignment2: Vec<char> = _alignment[1].chars().collect();
+fn score(_mat: Matrix<isize>) -> f64 {
+    let length1 = _mat.rows();
+    let length2 = _mat.cols();
+    let max = cmp::(length1, length2);
 
-    let length = _alignment1.len();
-
-    let mut score = 0;
-
-    for i in 0..length {
-        if _alignment1[i] != _alignment2[i] {
-            score += _mismatch;
-        } else if _alignment1[i] == _alignment2[i] {
-            score += _mach;
-        } else {
-            score += _gap;
-        }
-    }
+    let mut score = _mat.get(length1, length2);
     //Modificar la puntuación
 
-    score += length as i32;
+    score += max as i32;
     let mut new_score = (score as f64 / (length * 2) as f64) * 100.0;
     new_score = 100.0 - new_score;
 
