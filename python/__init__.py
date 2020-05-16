@@ -2,8 +2,11 @@ import LecturaCSV
 import UrlSequence
 import NeedlemanWunsch
 import NeedlemanWunschRust
+import numpy as np
 
 if __name__ == '__main__':
+
+    countries = []
 
     seq = LecturaCSV.LecturaCSV('data/sequences.csv', 'data/geoLocations.csv')
     countrySequences = seq.median() #Este metodo devuelve una lista con todas las tuplas de los país
@@ -12,21 +15,25 @@ if __name__ == '__main__':
     for i in range(len(countrySequences)):
         seq = UrlSequence.UrlSequence(countrySequences[i][0]).getSequence()
         countrySequences[i].append(seq)
+        countries.append(countrySequences[i][2])
         print(str(countrySequences[i][2]) + ' cargado.')
+    
+    size = len(countrySequences)
 
-    #GURDAMOS LOS SCORES EN UNA TABLA
-
-    countryScores = []
+    #GURDAMOS LOS SCORES EN UNA MATRIZ
+    
+    scores = [[0 for x in range(size)] for w in range(size)]
     needWunschRust = NeedlemanWunschRust.NeedlemanWunschRust()
 
     print('Alineando paises...')
+
     for i in range(len(countrySequences)-1):
-        countryScores.append([])
         for j in range(i + 1, len(countrySequences)):
-            seq1 = countrySequences[i][3][:100]
-            seq2 = countrySequences[j][3][:100]
+            seq1 = countrySequences[i][3][:400]
+            seq2 = countrySequences[j][3][:400]
             
             score = needWunschRust.getScore(seq1, seq2)
+            scores[i][j] = "{0:.2f}".format(score)
+            scores[j][i] = "{0:.2f}".format(score)
 
-            countryScores[i].append((countrySequences[i][2], countrySequences[j][2], score))
-            print((countrySequences[i][2], countrySequences[j][2], "{0:.2f}".format(score)))
+            #print((countrySequences[i][2], countrySequences[j][2], "{0:.2f}".format(score)))

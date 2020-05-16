@@ -24,7 +24,7 @@ fn get_score(_seq1: String, _seq2: String) -> PyResult<String> {
 
     let _mat: Matrix<isize> = initialize_matrix(seq1_vec, seq2_vec, 1, -1, -1);
 
-    let result: isize = score(_mat);
+    let result: String = score(_mat);
 
     Ok(result)
 }

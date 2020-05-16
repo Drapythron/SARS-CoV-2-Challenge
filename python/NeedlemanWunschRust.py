@@ -8,11 +8,11 @@ class NeedlemanWunschRust:
 
     def getScore(self, seq1, seq2):
         score = nW.get_score(seq1, seq2)
-        print(score)
+        score = int(score)
 
-        #CREMOS LA NUEVA PUNTUACIÓN DE 0 A 100
+        #CREAMOS LA NUEVA PUNTUACIÓN DE 0 A 100
 
-        """maxim = max(len(seq1), len(seq2))
+        maxim = max(len(seq1), len(seq2))
 
         score += maxim
 
@@ -20,4 +20,4 @@ class NeedlemanWunschRust:
 
         newScore = 100 - newScore
 
-        return newScore"""
+        return newScore
