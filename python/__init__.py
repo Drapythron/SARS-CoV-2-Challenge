@@ -23,8 +23,8 @@ if __name__ == '__main__':
     for i in range(len(countrySequences)-1):
         countryScores.append([])
         for j in range(i + 1, len(countrySequences)):
-            seq1 = countrySequences[i][3]
-            seq2 = countrySequences[j][3]
+            seq1 = countrySequences[i][3][:100]
+            seq2 = countrySequences[j][3][:100]
             
             score = needWunschRust.getScore(seq1, seq2)
 

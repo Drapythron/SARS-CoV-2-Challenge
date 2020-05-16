@@ -13,7 +13,7 @@ fn needleman_wunsch_rust(_py: Python, m: &PyModule) -> PyResult<()> {
 }
 
 #[pyfunction]
-fn get_score(_seq1: String, _seq2: String) -> PyResult<isize> {
+fn get_score(_seq1: String, _seq2: String) -> PyResult<String> {
     let mut sequences: Vec<String> = change_sequences(_seq1, _seq2);
 
     let _seq11: String = sequences.pop().unwrap();
@@ -119,11 +119,13 @@ fn change_sequences(mut _seq1: String, mut _seq2: String) -> Vec<String> {
     result
 }
 
-fn score(_mat: Matrix<isize>) -> isize {
+fn score(_mat: Matrix<isize>) -> String {
     let length1 = _mat.rows();
     let length2 = _mat.cols();
 
     let score = _mat.get(length1 - 1, length2 - 1).unwrap();
 
-    *score as isize
+    let res: String = score.to_string();
+
+    res
 }
