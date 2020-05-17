@@ -1,6 +1,6 @@
 import random
 
-class KMedoids:
+class Clustering:
 
     def __init__(self, matrix, countries):
         self.matrix = matrix

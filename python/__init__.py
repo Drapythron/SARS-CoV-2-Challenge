@@ -2,7 +2,7 @@ import LecturaCSV
 import UrlSequence
 import NeedlemanWunsch
 import NeedlemanWunschRust
-import KMedoids
+import Clustering
 
 if __name__ == '__main__':
 
@@ -37,5 +37,5 @@ if __name__ == '__main__':
             scores[j][i] = float("{0:.2f}".format(score))
     
 
-    kmed = KMedoids.KMedoids(scores, countries)
-    print(kmed.getClustering(6))
+    clust = Clustering.Clustering(scores, countries)
+    print(clust.getClustering(6))
