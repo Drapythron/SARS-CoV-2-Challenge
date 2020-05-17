@@ -2,59 +2,74 @@ import random
 
 class KMedoids:
 
-    def __init__(self, matrix):
+    def __init__(self, matrix, countries):
         self.matrix = matrix
+        self.countries = countries
     
-    
-
     def getClustering(self, k):
         centers = self.__listaAleatorios(k)
-        lastCenters = [[] for i in range(k)]
-        return self.__clustering(k, lastCenters, centers)
-    
+        lastCenters = [-1 for i in range(k)]
+        clusters = self.__clustering(k, lastCenters, centers, [])
+        return self.__clustersToCountries(k, clusters)
 
-    def __clustering(self, k, lastCenters, centers):
+    def __clustering(self, k, lastCenters, centers, clusters):
         #Comrobaremos que la lista de centros anteriores no sea igual a la anterior, si lo es, significará que hemos acamado el algoritmo.
         eq = True
         for i in range(len(centers)):
             if lastCenters[i] != centers[i]:
                 eq = False
         if eq :
-            return centers
+            return clusters
 
         #Empezamos el algoritmo
         clusters = [[] for i in range(k)]
         newCenters = []
 
+        #Buscamos los clusters
         for i in range(len(self.matrix)):
             temp = []
-            for center in centers:
+            for j in range(len(centers)):
+                center = centers[j]
                 temp.append(self.matrix[i][center])
             
             minim = min(temp)
             indexMin = temp.index(minim)
-            clusters[indexMin] = i
+            clusters[indexMin].append(i)
         
-        
-        for cluster in clusters:
+        #Sumamos las distancias
+        for w in range(len(clusters)):
+            cluster = clusters[w]
             possibleCenterIndex = []
             possibleCenter = []
-            for i in cluster:
-                temp = 0
-                for j in cluster:
-                    temp += self.matrix[i][j]
-                possibleCenter.append(temp)
+            for posi in range(len(cluster)):
+                adder = 0
+                i = cluster[posi]
+                for posj in range(len(cluster)):
+                    j = cluster[posj]
+                    adder += self.matrix[i][j]
+
+                possibleCenter.append(adder)
                 possibleCenterIndex.append(i)
+
             minim = min(possibleCenter)
             indexMin = possibleCenter.index(minim)
             newCenters.append(possibleCenterIndex[indexMin])
         
-        return self.__clustering(k, centers, newCenters)
+        return self.__clustering(k, centers, newCenters, clusters)
 
-
-    
     def __listaAleatorios(self, n):
-      lista = [0]  * n
-      for i in range(len(self.matrix)):
-          lista[i] = random.random()
+      lista = []
+      i = 0
+      while i < n:
+          num = random.randrange(0, len(self.matrix))
+          if num not in lista:
+              lista.append(num)
+              i += 1    
       return lista
+
+    def __clustersToCountries(self, k, clusters):
+        for i in range(len(clusters)):
+            for j in range(len(clusters[i])):
+                country = self.countries[clusters[i][j]]
+                clusters[i][j] = country
+        return clusters

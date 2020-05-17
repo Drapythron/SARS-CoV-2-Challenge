@@ -1,4 +1,4 @@
-from lib import needleman_wunsch_rust as nW 
+import lib.needleman_wunsch_rust as nW 
 
 class NeedlemanWunschRust:
     

@@ -2,7 +2,7 @@ import LecturaCSV
 import UrlSequence
 import NeedlemanWunsch
 import NeedlemanWunschRust
-import numpy as np
+import KMedoids
 
 if __name__ == '__main__':
 
@@ -33,7 +33,9 @@ if __name__ == '__main__':
             seq2 = countrySequences[j][3][:400]
             
             score = needWunschRust.getScore(seq1, seq2)
-            scores[i][j] = "{0:.2f}".format(score)
-            scores[j][i] = "{0:.2f}".format(score)
+            scores[i][j] = float("{0:.2f}".format(score))
+            scores[j][i] = float("{0:.2f}".format(score))
+    
 
-            #print((countrySequences[i][2], countrySequences[j][2], "{0:.2f}".format(score)))
+    kmed = KMedoids.KMedoids(scores, countries)
+    print(kmed.getClustering(6))
