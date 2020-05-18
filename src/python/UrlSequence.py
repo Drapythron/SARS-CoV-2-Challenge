@@ -23,4 +23,3 @@ class UrlSequence:
             self.__sequence += reader           # Ajuntando todas sus lineas para facilitar el tratamiento de datos
             reader = seqFASTA.readline()
         return self.__sequence
-

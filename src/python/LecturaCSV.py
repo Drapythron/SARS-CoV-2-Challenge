@@ -6,9 +6,8 @@ class LecturaCSV:
     __analysisList = []
     __medians = []
 
-    def __init__(self, fileSequences, fileGeoLocations):
+    def __init__(self, fileSequences):
         self.__fileSequences = fileSequences
-        self.__fileGeoLocations = fileGeoLocations
         self.__openAndSaveFile()
 
     def median(self):
@@ -19,22 +18,18 @@ class LecturaCSV:
 
     def __openAndSaveFile(self):
         with open(self.__fileSequences, newline='') as File:
-            with open(self.__fileGeoLocations, newline='') as LocationsFile:
-                # Abrimos fichero con los datos de las regiones y países
-                reader = csv.reader(LocationsFile, delimiter=';')
-                locations = self.__saveGeoLocation(reader)
-                reader = csv.reader(File)
-                row1 = next(reader)  # Eliminamos la linea del encabezado
-                for row in reader:
-                    accession = row[0]
-                    length = row[5]
-                    geoLocation = self.__newLocation(row[12])
-                    # Cogemos la ubicación del sequences (ej: USA: CA) y la traduciremos en solo el país (USA)
+            reader = csv.reader(File)
+            row1 = next(reader)  # Eliminamos la linea del encabezado
+            for row in reader:
+                accession = row[0]
+                length = row[5]
+                geoLocation = self.__newLocation(row[12])
+                # Cogemos la ubicación del sequences (ej: USA: CA) y la traduciremos en solo el país (USA)
 
-                    if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introduzcamos algún dato vacío
-                        self.__sequences.append([accession, length, geoLocation])  # Añadimos los datos
-                        if self.__geoLocations.count(geoLocation) == 0:  # Añadimos los nuevos países
-                            self.__geoLocations.append(geoLocation)
+                if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introduzcamos algún dato vacío
+                    self.__sequences.append([accession, length, geoLocation])  # Añadimos los datos
+                    if self.__geoLocations.count(geoLocation) == 0:  # Añadimos los nuevos países
+                        self.__geoLocations.append(geoLocation)
 
     def __mediana(self, geoLocation):
         lengths = []  # Guardará las longitudes
