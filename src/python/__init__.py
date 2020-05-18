@@ -27,12 +27,12 @@ if __name__ == '__main__':
     needWunschRust = NeedlemanWunschRust.NeedlemanWunschRust()
 
     print('Alineando paises...')
-    loop = tqdm(total = ((len(countrySequences)-1) * (len(countrySequences)-1) ) / 2, position = 0, leave = False)
+    loop = tqdm(total = ((len(countrySequences)) * (len(countrySequences)-1) ) // 2, position = 0, leave = False)
     iter = 0
     for i in range(len(countrySequences)-1):
         for j in range(i + 1, len(countrySequences)):
-            seq1 = countrySequences[i][3][:500]
-            seq2 = countrySequences[j][3][:500]
+            seq1 = countrySequences[i][3]
+            seq2 = countrySequences[j][3]
             
             score = needWunschRust.getScore(seq1, seq2)
             scores[i][j] = float("{0:.2f}".format(score))
@@ -47,4 +47,4 @@ if __name__ == '__main__':
         print(scores[i])
 
     print("\n\n\n")
-    print(clust.getClustering(6))
+    print(clust.getClustering(10))

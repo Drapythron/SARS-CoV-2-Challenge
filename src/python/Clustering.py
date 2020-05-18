@@ -7,13 +7,12 @@ class Clustering:
         self.countries = countries
     
     def getClustering(self, k):
-        centers = [0, 1] #self.__listaAleatorios(k)
+        centers = self.__listaAleatorios(k)
         lastCenters = [-1 for i in range(k)]
         clusters = self.__clustering(k, lastCenters, centers, [])
         return self.__clustersToCountries(k, clusters)
 
     def __clustering(self, k, lastCenters, centers, clusters):
-        print("centros: " + str(centers))
         #Comrobaremos que la lista de centros anteriores no sea igual a la anterior, si lo es, significará que hemos acamado el algoritmo.
         eq = True
         for i in range(len(centers)):
@@ -21,7 +20,7 @@ class Clustering:
                 eq = False
         if eq :
             return clusters
-
+        print("centros: " + str(centers))
         #Empezamos el algoritmo
         clusters = [[] for i in range(k)]
         newCenters = []
@@ -40,8 +39,7 @@ class Clustering:
                 minim = min(temp)
                 indexMin = temp.index(minim)
                 clusters[indexMin].append(i)
-
-        print(clusters)
+        print("clusters: " + str(clusters))
 
         #Sumamos las distancias
         for w in range(len(clusters)):
@@ -80,11 +78,3 @@ class Clustering:
                 country = self.countries[clusters[i][j]]
                 clusters[i][j] = country
         return clusters
-
-if __name__ == "__main__":
-    matrix = [[0, 3, 4],
-              [0, 0, 7],
-              [4, 8, 0]]
-    clust = Clustering(matrix, ("Spain, USA, Italy"))
-    clust.getClustering(2)
-       
