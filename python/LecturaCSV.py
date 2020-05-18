@@ -28,7 +28,7 @@ class LecturaCSV:
                 for row in reader:
                     accession = row[0]
                     length = row[5]
-                    geoLocation = self.__newLocation(row[12], locations)
+                    geoLocation = self.__newLocation(row[12])
                     # Cogemos la ubicación del sequences (ej: USA: CA) y la traduciremos en solo el país (USA)
 
                     if accession != '' and length != '' and geoLocation != '':  # Para evitar que no introduzcamos algún dato vacío
@@ -102,8 +102,7 @@ class LecturaCSV:
                 pos += 1
         return locations
 
-    def __newLocation(self, oldLocation, locations):
-        for country in locations:
-            if country.count(oldLocation):
-                return country[0]  # Devuelve el país, sin la región si existies
-        return oldLocation
+    def __newLocation(self, location):
+        tokens = location.split(':')
+        return tokens[0]
+
