@@ -20,7 +20,7 @@ class Clustering:
                 eq = False
         if eq :
             return clusters
-        print("centros: " + str(centers))
+
         #Empezamos el algoritmo
         clusters = [[] for i in range(k)]
         newCenters = []
@@ -39,7 +39,6 @@ class Clustering:
                 minim = min(temp)
                 indexMin = temp.index(minim)
                 clusters[indexMin].append(i)
-        print("clusters: " + str(clusters))
 
         #Sumamos las distancias
         for w in range(len(clusters)):
