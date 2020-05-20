@@ -84,19 +84,6 @@ class LecturaCSV:
             i = n // 2
             return (list[i - 1] + list[i]) / 2
 
-    def __saveGeoLocation(self, reader):
-        locations = []
-        row1 = next(reader)
-        for loc in row1:
-            locations.append([loc])  # Vamos separando los diferentes países
-        for row in reader:
-            pos = 0
-            for loc in row:
-                if loc != '':
-                    locations[pos].append(loc)  # Dentro de cada país, añadimos todas sus diferentes ubicaciones
-                pos += 1
-        return locations
-
     def __newLocation(self, location):
         tokens = location.split(':')
         return tokens[0]
