@@ -44,6 +44,6 @@ if __name__ == '__main__':
     
     clust = Clustering.Clustering(scores, countries)
 
-    print("\n\n\n")
+    print("\n")
     print("Realizando el clustering...")
     print(clust.getClustering(5))
