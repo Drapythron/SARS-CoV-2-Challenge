@@ -6,14 +6,12 @@ Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad
 
 **Tabla de contenidos:**
 
-- [Autores](#Autores)
-- [Preparación](#Preparación)
-  - [Pre-requisitos](#Pre-requisitos)
-  - [Instalación](#Instalación)
-- [Ejecución](#Ejecución)
-- [Construcción](#Construcción)
-- [Licencia](#Licencia)
-- [Expresiones de Gratitud](#Expresiones-de-Gratitud)
+- [Autores](#autores)
+- [Preparación](#preparación)
+  - [Requisitos](#requisitos)
+- [Ejecución](#ejecución)
+- [Construcción](#construcción)
+- [Expresiones de Gratitud](#expresiones-de-gratitud)
 
 ## Autores  
 
