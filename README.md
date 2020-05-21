@@ -18,14 +18,14 @@ Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad
 
 ## Autores  
 
-Los autores del SARS CoV-2 Challange y miembros del grupo Drapythron hemos realizado el reto de forma conjunta y coordinada. Todos hemos aportado en la programación del código y en el escrito de la documentación; sobretodo gracias a la gran comunicación y numerosas videollamadas realizadas. 
+Los autores del SARS CoV-2 Challange y miembros del grupo Drapythron hemos realizado el reto de forma conjunta y coordinada. Todos hemos aportado en la programación del código y en el escrito de la documentación; sobretodo gracias a la gran comunicación y numerosas videoconferencias realizadas.
 
 Los integrantes del equipo somos:
 
+- Sergio Beltrán Guerrero
 - Jaume Guasch Llobera
 - Martí Serratosa Sedó
 - Sebastian Bampton Blasco
-- Sergio Beltrán Guerrero
 
 ## Preparación
 
@@ -106,6 +106,7 @@ Las herramientas usada para crear el proyecto han sido tres:
 * [PyCharm](https://www.jetbrains.com/pycharm/ "PyCharm: Python tool") - Software para programar con Python.
 * [Typora](https://typora.io/ "Typora: markdown editor") - Software para editar y leer ficheros markdown.
 * [Github](https://github.com/ "Github: web de desarrollo colaborativo") - Web para compartir los ficheros del proyecto entre los miembros del equipo.
+* Visual Studio Code
 
 ## Licencia
 

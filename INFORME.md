@@ -4,24 +4,21 @@ Los autores del SARS CoV-2 Challenge y miembros del grupo Drapythron somos:
 
 - Sergio Beltrán Guerrero
 - Jaume Guasch Llobera
-- Sebastian Bampton Blasco
 - Martí Serratosa Sedó
+- Sebastian Bampton Blasco
 
-El programa utilizado para programar el código han sido PyCharm donde hemos trabajado con clases. Hay clases que corresponden exactamente con partes de la práctica y otras partes tienen más de una clase. Para el redactado en markdown hemos utilizado Typora, tanto el informe como el readme han sido únicamente trabajados con markdown.
+El programa utilizado para programar el código han sido PyCharm y Visual Studio Code donde hemos trabajado con clases. Hay clases que corresponden exactamente con partes de la práctica, otras,  tienen más de una clase. Para el redactado en markdown hemos utilizado Typora, Visual Studio Code y Github tanto en el informe como el readme.
 
 El informe lo dividiremos en una introducción, las diferentes partes de la práctica: preprocesamiento, alineamiento sequencial y clasificación, y, conclusión. Cada sección con sus apartados convenientes.
 
 **Tabla de contenidos:**
 
-- [Introducción](#0-Introducción)
+- [Introducción](##1-Introducción)
 - [Pre-procesamiento](#1-pre-procesamiento)
-  - [1.1 Lectura de archivos.csv](#11-lectura-de-archivos-csv)
-  - [1.2 Método mediana(geoLocation)](#12-método-medianageolocation)
-- [3. Alineamiento sequencial](#3-alineamiento-secuencial)
-  - [3.1 UrlSequence](#31-urlSequence)
-  - [3.2 NeedlemanWunsch](#32-needlemanwunsch)
-- [4. Clasificación](#4-clasificación)
-- [5. Conclusión](#5-conclusión)
+- [Alineamiento sequencial](##3-alineamiento-secuencial)
+- [Clustering](##4-clustering)
+- [Árbol de Clusters](##5-árbol-de-clusters)
+- [Tests](##6-tests)
 
 ## 1-Introducción
 
@@ -29,7 +26,7 @@ Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad
 
 **El objetivo de esta práctica, reto (challenge) es clasificar las diferentes muestras del virus que hay en el mundo y mostrar su árbol genealógico.**
 
-La ejecución del programa se realiza en el [\_\_init\_\_.py](src/python/__init__.py) este a su vez llamará otras clases para poder realizar las funciones deseadas. El orden de uso de la diferentes clases es el siguiente:
+La ejecución del programa se realiza en el [sarscovhierarchy.py](/src/python/sarscovhierarchy.py)amará otras clases para poder realizar las funciones deseadas. El orden de uso de la diferentes clases es el siguiente:
 
 1. LecturaCSV
 2. UrlSequence
@@ -74,7 +71,7 @@ Una vez tenemos la posición de la mediana en la lista, devolveremos la tupla en
 
 Este proceso tiene un coste de ***O(n)***, donde n es el tamaño de 'sequences'.
 
-En definitiva, el proceso de lectura del archivo csv y la devolución de la mediana de cada país tiene un coste de ***O(n<sup>3</sup>)*** .**REVISAR**
+En definitiva, el proceso de lectura del archivo csv y la devolución de la mediana de cada país tiene un coste de ***O(n<sup>3</sup>)***.
 
 ### Función median
 
@@ -113,6 +110,8 @@ La clase UrlSequence **obtiene los datos ARN de la base de datos de la NCBI cuan
 Para proceder a la obtención de la secuencia ARN primero de todo usando el *accession* descargaremos la secuencia ARN en formato .fasta. Para conseguirlo usamos el método `urllib.request.urlretrieve(url, 'sequencesFASTA.fast')` que nos creará un fichero temporal con los datos de la secuencia.
 
 A continuación, procederemos a su lectura. Iremos recorriendo todo el fichero con *.readLine()* borrando los espacios y saltos de linea. Las secuencias ya listas las añadiremos en una lista junto a accession, length y geolocation. Tal que así **['Accession', 'Length', 'GeoLocation', 'ARN']**.
+
+El coste de esta clase es de **O(n)**, n es el número de lineas de cada secuencia.
 
 ### NeedlemanWunsch
 
@@ -189,7 +188,7 @@ En cuanto al algoritmo de clasificación lo podemos dividir en 2 partes:
 
     En el ejemplo anterior ([1,2]), la suma de 1 es 7 y la suma de 2 es 10, por lo tanto el centro sigue siendo 1 ya que 7 es menor que 10.
 
-El coste de esta clase es de **O(n + m·n + p)
+El coste de esta clase es de **O(n + m·n + n·p<sup>2</sup>)**, donde n es el número de centros que siempre es igual a k, m el número de muestras y p el número de muestras en cada cluster.
 
 ## 5-Árbol de Clusters
 
@@ -197,12 +196,11 @@ Para que podamos apreciar mejor el resultado del programa, hemos creado una clas
 
 ADJUNTAR IMAGEN
 
-El coste de esta clase es de O(n·m), donde n es el numero de clusters y m es el número de países en cada cluster. La m ira variando según los países que pueda tener cada cluster.
+El coste de esta clase es de **O(n·m)**, donde n es el numero de clusters y m es el número de países en cada cluster. La m ira variando según los países que pueda tener cada cluster.
 
-## 6-Conclusión
+## 6-Tests
 
-Por último, para concluir vamos a analizar todos los costes de todas las clases en la siguiente tabla.
-
+A la hora de realizar los test del programa, solo hemos podido realizar los de NeedlemanWunsch, ya que, es el único algoritmo que podemos acceder y sabemos lo que devolverá al 100%. En la clase de Lectura CSV no hemos podido acceder ya que necesitábamos pasar un archivo csv. Y en la clase clustering no podemos saber con certeza cual sera el cluster que nos devolverá el programa, ya que, los primero centros son aleatorios.
 
 ---
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">licencia de Creative Commons Reconocimiento-NoComercial 4.0 Internacional</a>.
