@@ -13,12 +13,12 @@ El informe lo dividiremos en una introducción, las diferentes partes de la prá
 
 **Tabla de contenidos:**
 
-- [Introducción](##1-Introducción)
+- [Introducción](#1-introducción)
 - [Pre-procesamiento](#1-pre-procesamiento)
-- [Alineamiento sequencial](##3-alineamiento-secuencial)
-- [Clustering](##4-clustering)
-- [Árbol de Clusters](##5-árbol-de-clusters)
-- [Tests](##6-tests)
+- [Alineamiento sequencial](#3-alineamiento-secuencial)
+- [Clustering](#4-clustering)
+- [Árbol de Clusters](#5-árbol-de-clusters)
+- [Tests](#6-tests)
 
 ## 1-Introducción
 
