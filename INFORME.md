@@ -119,7 +119,7 @@ A continuación, procederemos a su lectura. Iremos recorriendo todo el fichero c
 Este algoritmo nos ayudará a obtener una puntuación en base al alineamiento de dos códigos genéticos de distintos países.
 El alineamiento de secuencias es una forma de comparar dos secuencias haciendo hincapié en las zonas donde hay similitudes.
 NeedlemanWunsch es el algoritmo más utilizado para comparar código genético.
-Se trata de un algoritmo de orden ***O(nm)***.
+Se trata de un algoritmo de orden ***O(n·m)***.
 
 Como ya hemos comentado anteriormente, hemos realizado dos implementaciónes de este algoritmo.
 
@@ -163,11 +163,45 @@ A la hora de implementar el código en Rust, hemos importado una librería que s
 
 En la [clase clustering](src/python/Clustering.py) realizaremos una clasificación de los países según sus puntuaciones.
 
+Primero de todo, dejar claro que la función principal de esta clase es recursiva. Para realizar esta clasificación, primero de todo, compararemos los centros actuales con los anteriores. Sí los dos centros son iguales significará que ya no se puede clasificar más esta lista de países.
 
-# 5. Conclusión
+En cuanto al algoritmo de clasificación lo podemos dividir en 2 partes:
 
-blablabla
+1. Búsqueda de los clusters, en este proceso compararemos todas las muestras con los centros y la muestra que sea mínima la añadiremos al cluster del centro. Ejemplo aclaratorio:
 
+      |     |0|1|2|
+      |-----|-|-|-|
+      |**0**|0|4|7|
+      |**1**|1|0|3|
+      |**2**|4|3|0|
+
+      Centros = 0, 1
+
+      Cluster = [[0], [1]]
+
+      El cluster inicial esta formado por los centros ya que representa que son idénticos y luego buscamos el peso mínimo entre las muestras que faltan. En nuestro ejemplo solo falta comprara la muestra 2.
+
+      min(02 = 4 y 12 = 3) --> res 12 = 3
+
+      **Cluster = [[0], [1, 2]]**
+
+2. Una vez tenemos los clusters, buscamos un nuevo centro, si existe. En cada cluster       realizaremos la suma de cada muestra y la que sea menor será el nuevo centro, ya que representa que es el que esta más al centro.
+
+    En el ejemplo anterior ([1,2]), la suma de 1 es 7 y la suma de 2 es 10, por lo tanto el centro sigue siendo 1 ya que 7 es menor que 10.
+
+El coste de esta clase es de **O(n + m·n + p)
+
+## 5-Árbol de Clusters
+
+Para que podamos apreciar mejor el resultado del programa, hemos creado una clase que construye un árbol cuyas ramas son los clusters. Esta sería una pequeña demostración del árbol.
+
+ADJUNTAR IMAGEN
+
+El coste de esta clase es de O(n·m), donde n es el numero de clusters y m es el número de países en cada cluster. La m ira variando según los países que pueda tener cada cluster.
+
+## 6-Conclusión
+
+Por último, para concluir vamos a analizar todos los costes de todas las clases en la siguiente tabla.
 
 
 ---

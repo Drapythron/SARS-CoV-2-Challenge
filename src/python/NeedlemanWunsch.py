@@ -5,12 +5,6 @@ class NeedlemanWunsch:
     __alineament1 = ''
     __alineament2 = ''
 
-    """__gap = -5
-    __similarityMatrix = [[10, -1, -3, -4],
-                          [-1, 7, -5, -3],
-                          [-3, -5, 9, 0],
-                          [-4, -3, 0, 8]]"""
-
     __gap = -1
     __similarityMatrix = [[1, -1, -1, -1],
                           [-1, 1, -1, -1],
@@ -49,20 +43,51 @@ class NeedlemanWunsch:
                 self.__matrix[i].append(max(opcion1, opcion2, opcion3))
 
     def __changeSequences(self):
-        self.__sequence1 = self.__sequence1.replace('N', 'A')  # Cambiamos las N's por A's
-        self.__sequence2 = self.__sequence2.replace('N', 'A')  # Cambiamos las N's por A's
+        self.__sequence1 = self.__sequence1.replace('N', 'A')  
+        self.__sequence2 = self.__sequence2.replace('N', 'A')  
 
-        self.__sequence1 = self.__sequence1.replace('K', 'G')  # Cambiamos las K's por G's
-        self.__sequence2 = self.__sequence2.replace('K', 'G')  # Cambiamos las K's por G's
+        self.__sequence1 = self.__sequence1.replace('K', 'G')  
+        self.__sequence2 = self.__sequence2.replace('K', 'G')  
 
+        self.__sequence1 = self.__sequence1.replace('R', 'A')  
+        self.__sequence2 = self.__sequence2.replace('R', 'A')  
+
+        self.__sequence1 = self.__sequence1.replace('Y', 'T')  
+        self.__sequence2 = self.__sequence2.replace('Y', 'T')  
+
+        self.__sequence1 = self.__sequence1.replace('M', 'A')  
+        self.__sequence2 = self.__sequence2.replace('M', 'A')  
+
+        self.__sequence1 = self.__sequence1.replace('S', 'G')  
+        self.__sequence2 = self.__sequence2.replace('S', 'G')  
+
+        self.__sequence1 = self.__sequence1.replace('W', 'A')  
+        self.__sequence2 = self.__sequence2.replace('W', 'A')  
+
+        self.__sequence1 = self.__sequence1.replace('B', 'G')  
+        self.__sequence2 = self.__sequence2.replace('B', 'G')  
+
+        self.__sequence1 = self.__sequence1.replace('D', 'A')  
+        self.__sequence2 = self.__sequence2.replace('D', 'A')  
+
+        self.__sequence1 = self.__sequence1.replace('H', 'A')  
+        self.__sequence2 = self.__sequence2.replace('H', 'A')  
+
+        self.__sequence1 = self.__sequence1.replace('V', 'A')  
+        self.__sequence2 = self.__sequence2.replace('V', 'A')  
+      
     def getScore(self):
-        score = self.__matrix[len(self.__matrix)-1]
+        rowSize = len(self.__matrix)-1
+        colSize = len(self.__matrix[len(self.__matrix)-1]) - 1
+
+        score = self.__matrix[rowSize][colSize]
 
         #CREMOS LA NUEVA PUNTUACIÓN DE 0 A 100
+        maxim = max(len(self.__sequence1), len(self.__sequence2))
 
-        score += len(self.__alineament1)
+        score = score + maxim
 
-        newScore = (score / (len(self.__alineament1) * 2)) * 100
+        newScore = (score / (maxim * 2)) * 100
 
         newScore = 100 - newScore
 

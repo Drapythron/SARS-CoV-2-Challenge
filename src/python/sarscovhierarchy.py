@@ -3,6 +3,7 @@ import UrlSequence
 import NeedlemanWunsch
 import NeedlemanWunschRust
 import Clustering
+import Graph
 from tqdm import tqdm 
 
 if __name__ == '__main__':
@@ -46,4 +47,9 @@ if __name__ == '__main__':
 
     print("\n")
     print("Realizando el clustering...")
-    print(clust.getClustering(5))
+    clusters = clust.getClustering(8)
+
+    #Creamos el árbol con los clusters
+
+    graph = Graph.Graph(clusters)
+    graph.createGraph()

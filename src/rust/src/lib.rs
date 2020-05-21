@@ -129,3 +129,30 @@ fn score(_mat: Matrix<isize>) -> String {
 
     res
 }
+
+
+//TEST
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_score() {
+        let mut _seq1 = "AACGT".to_string();
+        let mut _seq2 = "GTACG".to_string();
+
+        let mut sequences: Vec<String> = change_sequences(_seq1, _seq2);
+
+        let _seq11: String = sequences.pop().unwrap();
+        let _seq21: String = sequences.pop().unwrap();
+
+        let seq1_vec: Vec<char> = _seq11.chars().collect();
+        let seq2_vec: Vec<char> = _seq21.chars().collect();
+
+        let _mat: Matrix<isize> = initialize_matrix(seq1_vec, seq2_vec, 1, -1, -1);
+
+        let result: String = score(_mat);
+
+        assert_eq!(result, "0".to_string());
+    }
+}
