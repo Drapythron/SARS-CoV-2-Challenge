@@ -14,7 +14,7 @@ El informe lo dividiremos en una introducción, las diferentes partes de la prá
 **Tabla de contenidos:**
 
 - [Introducción](#1-introducción)
-- [Pre-procesamiento](#1-pre-procesamiento)
+- [Pre-procesamiento](#2-pre-procesamiento)
 - [Alineamiento sequencial](#3-alineamiento-secuencial)
 - [Clustering](#4-clustering)
 - [Árbol de Clusters](#5-árbol-de-clusters)
