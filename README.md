@@ -31,7 +31,7 @@ Si se quiere ejecutar el proyecto de rust, es necesario instalar rust y establec
 
 ### Requisitos
 
-Como he mencionado anteriormente, tenemos disponible un fichero con las librerías que necesitamos para poder ejecutar el programa. Para poder instalarlas es necesarioo tener pip y desde el bash ejecutar el siguiente comando `pip install -m requirements.txt`. Ademas de tener instaladas las librerías necesitamos el archivo sequences.csv
+Como he mencionado anteriormente, tenemos disponible un fichero con las librerías que necesitamos para poder ejecutar el programa. Para poder instalarlas es necesarioo tener pip y desde el bash ejecutar el siguiente comando `pip install -r requirements.txt`. Ademas de tener instaladas las librerías necesitamos el archivo sequences.csv
 
 #### "sequences.csv"
 
