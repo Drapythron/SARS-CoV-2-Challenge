@@ -9,8 +9,6 @@ Los autores del SARS CoV-2 Challenge y miembros del grupo Drapythron somos:
 
 El programa utilizado para programar el código han sido PyCharm y Visual Studio Code donde hemos trabajado con clases. Hay clases que corresponden exactamente con partes de la práctica, otras,  tienen más de una clase. Para el redactado en markdown hemos utilizado Typora, Visual Studio Code y Github tanto en el informe como el readme.
 
-El informe lo dividiremos en una introducción, las diferentes partes de la práctica: preprocesamiento, alineamiento sequencial y clasificación, y, conclusión. Cada sección con sus apartados convenientes.
-
 **Tabla de contenidos:**
 
 - [Introducción](#1-introducción)
