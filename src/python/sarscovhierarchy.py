@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     print("\n")
     print("Realizando el clustering...")
-    clusters = clust.getClustering(4)
+    clusters = clust.getClustering(4) #Definimos que k = 4
 
     #Creamos el árbol con los clusters
 
