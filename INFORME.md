@@ -24,7 +24,7 @@ Hoy en día, unos de los grandes objetivos a nivel internacional de la comunidad
 
 **El objetivo de esta práctica, reto (challenge) es clasificar las diferentes muestras del virus que hay en el mundo y mostrar su árbol genealógico.**
 
-La ejecución del programa se realiza en el [sarscovhierarchy.py](/src/python/sarscovhierarchy.py)amará otras clases para poder realizar las funciones deseadas. El orden de uso de la diferentes clases es el siguiente:
+La ejecución del programa se realiza en el [sarscovhierarchy.py](/src/python/sarscovhierarchy.py) amará otras clases para poder realizar las funciones deseadas. El orden de uso de la diferentes clases es el siguiente:
 
 1. LecturaCSV
 2. UrlSequence
@@ -95,11 +95,11 @@ Una vez hemos obtenido listas formadas por uno/dos elemento(s), compararemos los
 
 La segunda parte de la práctica consiste en realizar dos tareas.
 
-* La primera tarea es la lectura del ARN de cada nucleotido de la mediana del país encontrada en la primera parte. Para realizar esta tarea usaremos la [**Clase UrlSequence**](python\UrlSequence.py).
+* La primera tarea es la lectura del ARN de cada nucleotido de la mediana del país encontrada en la primera parte. Para realizar esta tarea usaremos la **Clase UrlSequence**.
 
 * La segunda tarea consiste en alinear las secuencias de ARN y compararlas. Esta tarea la hemos implementado de dos formas. Usando el lenguaje de programación Python y usando el lenguaje de programación Rust.
-  - La [**Clase NeedlemanWunsch**](python/NeedlemanWunsch.py) es la clase que hemos implementado en Python.
-  - La [**Clase NeedlemanWunschRust**](python\NeedlemanWunschRust.py)  es la clase que hemos implementado en Rust.
+  - La **Clase NeedlemanWunsch** es la clase que hemos implementado en Python.
+  - La **Clase NeedlemanWunschRust**  es la clase que hemos implementado en Rust.
 
 ### UrlSequence
 
@@ -153,12 +153,12 @@ A la hora de puntuar, hemos decidido que el rango de puntuación sea de [0, 100]
 
 #### Needleman-Wunsch en Rust
 
-Para mejorar la velocidad del algoritmo hemos implementado el algoritmo anterior en el lenguaje de Programación [Rust](https://www.rust-lang.org/es/). Hemos creado una [librería](rust/src/lib.rs) en Rust con las funciones de alinear y puntuación. Una vez creada la hemos compilado y importado a nuestro código en Python.
+Para mejorar la velocidad del algoritmo hemos implementado el algoritmo anterior en el lenguaje de Programación [Rust](https://www.rust-lang.org/es/). Hemos creado una **librería** en Rust con las funciones de alinear y puntuación. Una vez creada la hemos compilado y importado a nuestro código en Python.
 A la hora de implementar el código en Rust, hemos importado una librería que se llama *Simple_Matrix*, la cual nos crea una matriz de enteros, con la que trabajaremos. Las demás implementaciones son igual que en python pero traducido a Rust.
 
 ## 4-Clustering
 
-En la [clase clustering](src/python/Clustering.py) realizaremos una clasificación de los países según sus puntuaciones.
+En la **clase clustering** realizaremos una clasificación de los países según sus puntuaciones.
 
 Primero de todo, dejar claro que la función principal de esta clase es recursiva. Para realizar esta clasificación, primero de todo, compararemos los centros actuales con los anteriores. Sí los dos centros son iguales significará que ya no se puede clasificar más esta lista de países.
 
