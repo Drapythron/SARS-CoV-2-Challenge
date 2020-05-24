@@ -1,0 +1,95 @@
+digraph {
+	0 [label=CLUSTERS color=red]
+	1 [label="CLUSTER 1" color=blue]
+	0 -> 1
+	10 [label=Bangladesh color=blue]
+	1 -> 10
+	11 [label=Germany color=blue]
+	1 -> 11
+	12 [label=Uruguay color=blue]
+	1 -> 12
+	13 [label=France color=blue]
+	1 -> 13
+	14 [label=Colombia color=blue]
+	1 -> 14
+	15 [label=Guam color=blue]
+	1 -> 15
+	16 [label=Netherlands color=blue]
+	1 -> 16
+	17 [label="Hong Kong" color=blue]
+	1 -> 17
+	18 [label=Kazakhstan color=blue]
+	1 -> 18
+	19 [label=Taiwan color=blue]
+	1 -> 19
+	110 [label="Sri Lanka" color=blue]
+	1 -> 110
+	111 [label=Brazil color=blue]
+	1 -> 111
+	112 [label=Nigeria color=blue]
+	1 -> 112
+	113 [label="South Africa" color=blue]
+	1 -> 113
+	114 [label=Turkey color=blue]
+	1 -> 114
+	115 [label="South Korea" color=blue]
+	1 -> 115
+	116 [label=Pakistan color=blue]
+	1 -> 116
+	117 [label=Israel color=blue]
+	1 -> 117
+	118 [label=Peru color=blue]
+	1 -> 118
+	119 [label=Sweden color=blue]
+	1 -> 119
+	120 [label=Nepal color=blue]
+	1 -> 120
+	121 [label=Finland color=blue]
+	1 -> 121
+	2 [label="CLUSTER 2" color=chartreuse]
+	0 -> 2
+	20 [label=Iran color=chartreuse]
+	2 -> 20
+	21 [label=Iraq color=chartreuse]
+	2 -> 21
+	22 [label=Belgium color=chartreuse]
+	2 -> 22
+	3 [label="CLUSTER 3" color=chocolate]
+	0 -> 3
+	30 [label=China color=chocolate]
+	3 -> 30
+	31 [label=Japan color=chocolate]
+	3 -> 31
+	32 [label=USA color=chocolate]
+	3 -> 32
+	33 [label=India color=chocolate]
+	3 -> 33
+	34 [label=Greece color=chocolate]
+	3 -> 34
+	35 [label=Serbia color=chocolate]
+	3 -> 35
+	36 [label=Italy color=chocolate]
+	3 -> 36
+	37 [label=Australia color=chocolate]
+	3 -> 37
+	38 [label=Thailand color=chocolate]
+	3 -> 38
+	39 [label="Puerto Rico" color=chocolate]
+	3 -> 39
+	310 [label="Czech Republic" color=chocolate]
+	3 -> 310
+	311 [label=Malaysia color=chocolate]
+	3 -> 311
+	312 [label=Spain color=chocolate]
+	3 -> 312
+	313 [label=Tunisia color=chocolate]
+	3 -> 313
+	4 [label="CLUSTER 4" color=darkgoldenrod]
+	0 -> 4
+	40 [label=Uzbekistan color=darkgoldenrod]
+	4 -> 40
+	41 [label="Viet Nam" color=darkgoldenrod]
+	4 -> 41
+	42 [label=Philippines color=darkgoldenrod]
+	4 -> 42
+}

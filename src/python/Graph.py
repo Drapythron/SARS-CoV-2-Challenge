@@ -22,4 +22,4 @@ class Graph:
                 graph.node(str(i + 1) + str(j), str(self.clusters[i][j]), color = str(self.colors[i]))
                 graph.edge(str(i + 1), str(i + 1) + str(j))
 
-        graph.render(filename='Resultado', view='True')
+        graph.render(filename='Resultado')
