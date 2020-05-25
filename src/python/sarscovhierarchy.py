@@ -32,8 +32,8 @@ if __name__ == '__main__':
     iter = 0
     for i in range(len(countrySequences)-1):
         for j in range(i + 1, len(countrySequences)):
-            seq1 = countrySequences[i][3][:500]#Descomentar para coger los 500 primeros nucleotides [:500]
-            seq2 = countrySequences[j][3][:500]#Descomentar para coger los 500 primeros nucleotides [:500]
+            seq1 = countrySequences[i][3]#Descomentar para coger los 500 primeros nucleotides [:500]
+            seq2 = countrySequences[j][3]#Descomentar para coger los 500 primeros nucleotides [:500]
             
             score = needWunschRust.getScore(seq1, seq2)
             scores[i][j] = float("{0:.2f}".format(score))
