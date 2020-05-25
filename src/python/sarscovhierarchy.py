@@ -11,7 +11,7 @@ if __name__ == '__main__':
     countries = []
 
     seq = LecturaCSV.LecturaCSV('data/sequences.csv')
-    countrySequences = seq.median() #Este metodo devuelve una lista con todas las tuplas de los país
+    countrySequences = seq.median() #Este método devuelve una lista con todas las lista de los país
 
     #LLAMAMOS A LA CLASE 'UrlSequence' PARA OBTENER LAS SECUENCIAS DE ARN DE LOS PAÍSES DESDE LA WEB
     for i in range(len(countrySequences)):

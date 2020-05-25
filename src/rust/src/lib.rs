@@ -130,7 +130,6 @@ fn score(_mat: Matrix<isize>) -> String {
     res
 }
 
-
 //TEST
 #[cfg(test)]
 mod tests {
