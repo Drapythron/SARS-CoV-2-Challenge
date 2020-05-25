@@ -40,11 +40,7 @@ class LecturaCSV:
         med = self.__median(lengths)  # Mediana realizada con funciones propias
 
         # Ahora devolveremos el valor length correspondiente a la posición de la mediana
-        if lengths.count(med):
-            indexMedian = lengths.index(med)
-            result = self.__analysisList[indexMedian]
-        else:  # Para cuando la mediana no coincida con ningun elemento de la lista
-            result = self.__analysisList[min(range(len(lengths)), key=lambda i: abs(lengths[i] - med))]
+        result = self.__analysisList[min(range(len(lengths)), key=lambda i: abs(lengths[i] - med))]
 
         self.__analysisList.clear()
         return result
@@ -87,4 +83,3 @@ class LecturaCSV:
     def __newLocation(self, location):
         tokens = location.split(':')
         return tokens[0]
-
